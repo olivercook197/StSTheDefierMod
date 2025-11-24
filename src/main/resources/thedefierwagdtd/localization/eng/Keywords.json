@@ -1,0 +1,65 @@
+[
+  {
+    "PROPER_NAME": "This is displayed in the tooltip.",
+    "NAMES": [
+      "these",
+      "are",
+      "detected",
+      "in",
+      "the",
+      "text"
+    ],
+    "DESCRIPTION": "This is displayed in the tooltip. Spaces should not be used be avoided in NAMES, with the exception of multi-word keywords (see next entry)."
+  },
+  {
+    "PROPER_NAME": "Multiword Keyword",
+    "NAMES": [
+      "multiword keyword",
+      "multiword_keyword",
+      "multiword_keywords"
+    ],
+    "DESCRIPTION": "Make sure the first element in NAMES has no underscores. The rest should use _ in the place of spaces. In card text, you'll use the underscore versions."
+  },
+
+  {
+    "PROPER_NAME": "Weary",
+    "NAMES": [
+      "weary"
+    ],
+    "DESCRIPTION": "Weary creatures deal #b15% less damage with Attacks"
+  },
+
+  {
+    "PROPER_NAME": "Lion's Heart",
+    "NAMES": [
+      "Lion's Heart",
+      "Lion's_Heart"
+    ],
+    "DESCRIPTION": "At the end of combat, heal 1 #yHP for every 8 #yLion's #yHeart"
+  },
+
+  {
+    "PROPER_NAME": "Reckless",
+    "NAMES": [
+      "Reckless"
+    ],
+    "DESCRIPTION": "Take 10% of your current HP as damage (rounded down)."
+  },
+
+  {
+    "PROPER_NAME": "Caution",
+    "NAMES": [
+      "Caution",
+      "caution"
+    ],
+    "DESCRIPTION": "Reduces damage from Reckless, decreases by 1 every turn."
+  },
+
+  {
+    "PROPER_NAME": "Unphased",
+    "NAMES": [
+      "Unphased"
+    ],
+    "DESCRIPTION": "You no longer take extra damage from being #yVulnerable, decreases by 1 every turn."
+  }
+]

@@ -1,0 +1,497 @@
+{
+  "${modID}:ExampleCard": {
+    "NAME": "Name",
+    "DESCRIPTION": "Description. NL Second line.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "You can put more text in here.",
+      "If you need to use it for stuff.",
+      "Blizzard is a good example for this."
+    ]
+  },
+
+  "${modID}:Strike": {
+    "NAME": "Strike",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+
+  "${modID}:PlayfulTwitch": {
+    "NAME": "Playful Twitch",
+    "DESCRIPTION": "Gain 1 ${modID}:Weary. NL Gain !M! Temporary Strength."
+  },
+
+  "${modID}:Surge": {
+    "NAME": "Surge",
+    "DESCRIPTION" : "Draw 1 card. NL Gain [E]  [E]  [E].",
+    "UPGRADE_DESCRIPTION" : "Draw 1 card. NL Gain [E]  [E]  [E]  [E]."
+  },
+
+  "${modID}:BalancedCalm": {
+    "NAME": "Balanced Calm",
+    "DESCRIPTION": "Whenever you play a Skill, gain !M! ${modID}:Lion's_Heart."
+  },
+
+  "${modID}:Catnip": {
+    "NAME": "Catnip",
+    "DESCRIPTION": "Draw !M! Cards. NL ${modID}:Reckless."
+  },
+
+  "${modID}:Defend": {
+    "NAME": "Defend",
+    "DESCRIPTION": "Gain !B! Block."
+  },
+
+  "${modID}:Frolic": {
+    "NAME": "Frolic",
+    "DESCRIPTION": "Gain !B! Block. NL Draw 1 card, give it +!M! damage and +!M! Block this combat."
+  },
+
+  "${modID}:MilkBoost": {
+    "NAME": "Milk Boost",
+    "DESCRIPTION": "Pay !M! ${modID}:Lion's_Heart. NL At the start of your turn, gain [E].",
+    "EXTENDED_DESCRIPTION": [
+      "I do not have enough Lion's Heart."
+    ]
+  },
+
+  "${modID}:IndomitableMight": {
+    "NAME": "Indomitable Might",
+    "DESCRIPTION": "Deal damage equal to your Vulnerable.",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to double your Vulnerable.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage.)"
+    ]
+  },
+
+  "${modID}:WhiskerWalker": {
+    "NAME": "Whisker Walker",
+    "DESCRIPTION": "Whenever you play a ${modID}:Reckless card, gain !M! Block."
+  },
+
+  "${modID}:Opportunity": {
+    "NAME": "Opportunity",
+    "DESCRIPTION": "Whenever Vulnerable is applied to ANYONE, deal 1 damage to ALL enemies.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever Vulnerable is applied to ANYONE, deal 1 damage to ALL enemies."
+  },
+
+  "${modID}:BreakDefences": {
+    "NAME": "Break Defences",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Vulnerable to you and the target."
+  },
+
+  "${modID}:CautiousImpulse": {
+    "NAME": "Cautious Impulse",
+    "DESCRIPTION": "Gain !M! ${modID}:Caution. NL ${modID}:Reckless. NL Exhaust."
+  },
+
+  "${modID}:FloatAndFall": {
+    "NAME": "Float and Fall",
+    "DESCRIPTION": "ALL enemies lose 1 Strength for every !M! ${modID}:Lion's_Heart on you.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (",
+      ")"
+    ]
+  },
+
+  "${modID}:ParalysingGlare": {
+    "NAME": "Paralysing Glare",
+    "DESCRIPTION": "Apply 1 ${modID}:Weary. NL Gain Strength equal to Vulnerable on enemy. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Apply 1 ${modID}:Weary. NL Gain Strength equal to Vulnerable on enemy."
+  },
+
+  "${modID}:NeverDown": {
+    "NAME": "Never Down",
+    "DESCRIPTION": "Gain 4 Temporary Strength. NL Gain 3 ${modID}:Lion's_Heart. NL Draw 2 cards. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain 5 Temporary Strength. NL Gain 4 ${modID}:Lion's_Heart. NL Draw 3 cards. NL Exhaust."
+  },
+
+  "${modID}:StartSmall": {
+    "NAME": "Start Small",
+    "DESCRIPTION": "At the start of your turn, gain !M! ${modID}:Lion's_Heart .",
+    "EXTENDED_DESCRIPTION": [
+      " NL At the end of combat, if you have at least ",
+      " ${modID}:Lion's_Heart, permanently increase this card's ${modID}:Lion's_Heart gain by 1.",
+      " NL Draw 1 card."
+    ]
+  },
+
+  "${modID}:BringerOfBadLuck": {
+    "NAME": "Bringer of Bad Luck",
+    "DESCRIPTION": "Deal !D! damage. NL Discard 1 card."
+  },
+
+  "${modID}:SmoulderingSneer": {
+    "NAME": "Smouldering Sneer",
+    "DESCRIPTION": "Next turn, gain !M! Temporary Strength and 1 Vulnerable."
+  },
+
+  "${modID}:FacingDown": {
+    "NAME": "Facing Down",
+    "DESCRIPTION": "Deal !D! damage. NL At the end of your turn, Retain 1 card and reduce its cost by 1 for the rest of combat."
+  },
+
+  "${modID}:WellGroomed": {
+    "NAME": "Well-Groomed",
+    "DESCRIPTION": "Innate. NL Gain !M! ${modID}:Lion's_Heart. NL Exhaust."
+  },
+
+  "${modID}:FeralScream": {
+    "NAME": "Feral Scream",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !M! Temporary Strength. NL Gain 1 Weak. NL Gain 1 Vulnerable. NL Draw 1 card.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain !M! Temporary Strength. NL Gain 1 ${modID}:Weary. NL Gain 1 Vulnerable. NL Draw 1 card."
+  },
+
+  "${modID}:BrushWithDeath": {
+    "NAME": "Brush With Death",
+    "DESCRIPTION": "Deal !D! damage. Draw 1 card. NL ${modID}:Reckless. NL If you have a Curse in your hand, ignore ${modID}:Reckless damage."
+  },
+
+  "${modID}:Grace": {
+    "NAME": "Grace",
+    "DESCRIPTION": "Gain 1 Dexterity for every !M! ${modID}:Lion's_Heart on you. NL Do this X+1 times. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      "Gain 1 Dexterity for every !M! ${modID}:Lion's_Heart on you (",
+      "). NL Do this X+1 times. NL Exhaust."
+    ]
+  },
+
+  "${modID}:DeceivedIdentity": {
+    "NAME": "Deceived Identity",
+    "DESCRIPTION": "Choose to pay [E] or lose !M! ${modID}:Lion's_Heart. NL Deal !D! damage. NL Gain 9 ${modID}:Lion's_Heart."
+  },
+
+  "${modID}:Smoke": {
+    "NAME": "Smoke",
+    "DESCRIPTION": "Lose [E]."
+  },
+
+  "${modID}:Mirrors": {
+    "NAME": "Mirrors",
+    "DESCRIPTION": "Lose !M! ${modID}:Lion's_Heart."
+  },
+
+  "${modID}:KillingField": {
+    "NAME": "Killing Field",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Gain !M! Strength."
+  },
+
+  "${modID}:MarkOfGreatness": {
+    "NAME": "Mark of Greatness",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !M! ${modID}:Lion's_Heart."
+  },
+
+  "${modID}:Illusive": {
+    "NAME": "Illusive",
+    "DESCRIPTION": "Choose 1 card in hand to remove from deck. NL This card is also removed. NL ${modID}:Reckless.",
+    "UPGRADE_DESCRIPTION": "Choose 1 card in hand to remove from deck. NL This card is also removed."
+  },
+
+  "${modID}:Lunge": {
+    "NAME": "Lunge",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !M! Temporary Strength. NL ${modID}:Reckless."
+  },
+
+  "${modID}:Exploded": {
+    "NAME": "Exploded",
+    "DESCRIPTION": "Apply !M! Vulnerable to EVERYONE. NL Upon pickup, Upgrade a random card in your deck. NL ${modID}:Reckless."
+  },
+
+  "${modID}:Burned": {
+    "NAME": "Burned",
+    "DESCRIPTION": "Gain 1 Weak. NL Give 2 attack cards in hand +2 damage. NL ${modID}:Reckless."
+  },
+
+  "${modID}:Plummeted": {
+    "NAME": "Plummeted",
+    "DESCRIPTION": "Discard 1 card. Gain 1 Dexterity. NL ${modID}:Reckless."
+  },
+
+  "${modID}:Crushed": {
+    "NAME": "Crushed",
+    "DESCRIPTION": "A random enemy gains 2 Temporary Strength. Gain 6 ${modID}:Lion's_Heart. NL ${modID}:Reckless."
+  },
+
+  "${modID}:Humiliated": {
+    "NAME": "Humiliated",
+    "DESCRIPTION": "When drawn, lose !M! Strength this turn. NL Gain 1 Strength next turn. NL ${modID}:Reckless."
+  },
+
+  "${modID}:Trampled": {
+    "NAME": "Trampled",
+    "DESCRIPTION": "When drawn, gain 1 Frail. NL Draw 2 cards. NL ${modID}:Reckless."
+  },
+
+  "${modID}:Mauled": {
+    "NAME": "Mauled",
+    "DESCRIPTION": "Gain 5 Temporary Strength. Lose 1 Strength next turn. NL ${modID}:Reckless."
+  },
+
+  "${modID}:Choked": {
+    "NAME": "Choked",
+    "DESCRIPTION": "Gain 5 Gold. A random card in your hand costs +1 for the turn. NL ${modID}:Reckless."
+  },
+
+  "${modID}:ShakeOff": {
+    "NAME": "Shake Off",
+    "DESCRIPTION": "Choose a card in hand to Exhaust. NL Gain !B! Block for each [E] it cost."
+  },
+
+  "${modID}:RainyDay": {
+    "NAME": "Rainy Day",
+    "DESCRIPTION": "Every 3 times you gain Vulnerable, draw 1 card.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Every 3 times you gain Vulnerable, draw 1 card."
+  },
+
+  "${modID}:ThroughTheFlames": {
+    "NAME": "Through the Flames",
+    "DESCRIPTION": "Gain !M! Temporary Strength. NL Draw 1 card. NL ${modID}:Reckless."
+  },
+
+  "${modID}:Howl": {
+    "NAME": "Howl",
+    "DESCRIPTION": "Deal !D! damage to a random enemy. NL Draw 1 card, it costs 2 this turn."
+  },
+
+  "${modID}:Dupe": {
+    "NAME": "Dupe",
+    "DESCRIPTION": "Deal !D! damage. NL Lose 3 Strength this turn. NL Enemy loses !M! Dexterity.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Lose 3 Strength this turn. NL Enemy loses !M! Strength and Dexterity."
+  },
+
+  "${modID}:LickWounds": {
+    "NAME": "Lick Wounds",
+    "DESCRIPTION": "At the end of combat, heal for !M!% of your missing HP. NL ${modID}:Reckless."
+  },
+
+  "${modID}:BorrowedTime": {
+    "NAME": "Borrowed Time",
+    "DESCRIPTION": "Gain 3 Weary. NL At the start of your turn, if you are able, lose 1 ${modID}:Lion's_Heart and draw 1 card.",
+    "UPGRADE_DESCRIPTION": "At the start of your turn, if you are able, lose 1 ${modID}:Lion's_Heart and draw 1 card."
+  },
+  "${modID}:KeenSenses": {
+    "NAME": "Keen Senses",
+    "DESCRIPTION": "Whenever you play a Curse, gain !M! Block."
+  },
+
+  "${modID}:BattleForm": {
+    "NAME": "Battle Form",
+    "DESCRIPTION": "At the start of your turn, gain 1 Temporary Strength per 8 ${modID}:Lion's_Heart."
+  },
+
+  "${modID}:Nap": {
+    "NAME": "Nap",
+    "DESCRIPTION": "End your turn. NL Next turn, gain !B! Block, and apply !M! Weak to ALL enemies, then skip your turn. NL In 2 turns, gain 5 Temporary Strength and heal for half of your ${modID}:Lion's_Heart.",
+    "UPGRADE_DESCRIPTION": "End your turn. NL Next turn, gain !B! Block, and apply !M! Weak to ALL enemies, then skip your turn. NL In 2 turns, gain 7 Temporary Strength and heal for half of your ${modID}:Lion's_Heart."
+  },
+
+  "${modID}:BackAlley": {
+    "NAME": "Back Alley",
+    "DESCRIPTION": "The first card you draw each turn cost 1 less.",
+    "UPGRADE_DESCRIPTION": "The first !M! cards you draw each turn cost 1 less."
+  },
+
+  "${modID}:CoughUpFurball": {
+    "NAME": "Cough up Furball",
+    "DESCRIPTION": "For each Curse in your hand, draw !M! cards. NL Gain 1 Vulnerable."
+  },
+
+  "${modID}:AncientTeachings": {
+    "NAME": "Ancient Teachings",
+    "DESCRIPTION": "Exhaust 1 card in your hand, gain !M! Temporary Strength for each [E] it cost."
+  },
+
+  "${modID}:LingeringTingle": {
+    "NAME": "Lingering Tingle",
+    "DESCRIPTION": "Adds a random Reckless card to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Adds a random upgraded ${modID}:Reckless card to your hand. NL Exhaust."
+  },
+
+  "${modID}:FromWithin": {
+    "NAME": "From Within",
+    "DESCRIPTION": "Deal damage equal to a third of your ${modID}:Lion's_Heart. NL Gain 2 Vulnerable.",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to half of your ${modID}:Lion's_Heart. NL Gain 2 Vulnerable.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage.)"
+    ]
+  },
+
+  "${modID}:ManicIgnorance": {
+    "NAME": "Manic Ignorance",
+    "DESCRIPTION": "Gain !B! Block. NL Draw !M! cards."
+  },
+
+  "${modID}:Agility": {
+    "NAME": "Agility",
+    "DESCRIPTION": "At the end of your turn, gain 1 Block per Vulnerable on you.",
+    "UPGRADE_DESCRIPTION": "At the end of your turn, gain 1 Block per Vulnerable on you. NL Gain 1 ${modID}:Unphased. NL Gain 1 Vulnerable."
+  },
+
+  "${modID}:Moonlight": {
+    "NAME": "Moonlight",
+    "DESCRIPTION": "Gain !B! Block. NL Gain an additional !M! Block per [E] cost in hand.",
+    "EXTENDED_DESCRIPTION": [
+      "Gain ",
+      " Block. NL Gain an additional !M! Block per [E] cost in hand.",
+      " NL (Gains ",
+      " Block.)"
+    ]
+  },
+
+  "${modID}:AllFours": {
+    "NAME": "All Fours",
+    "DESCRIPTION": "Gain !B! Block. NL Choose a card in hand. It costs +1 this turn."
+  },
+
+  "${modID}:FerociousSwipe": {
+    "NAME": "Ferocious Swipes",
+    "DESCRIPTION": "Deal !D! damage twice. NL ${modID}:Reckless. NL If you have 30 or more ${modID}:Lion's_Heart, ignore ${modID}:Reckless damage."
+  },
+
+  "${modID}:StaticCharge": {
+    "NAME": "Static Charge",
+    "DESCRIPTION": "Choose a card in hand to Exhaust. NL Deal !D! damage for each [E] it cost.",
+    "UPGRADE_DESCRIPTION": "Choose a card in hand to Exhaust. NL Deal !D! damage for each [E] it cost."
+  },
+
+  "${modID}:PlayWithFood": {
+    "NAME": "Play With Food",
+    "DESCRIPTION": "Gain [E] [E]. NL A random enemy gain 1 Strength next turn.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Gain [E] [E]. NL A random enemy gain 1 Strength next turn."
+  },
+
+  "${modID}:BloodOfKings": {
+    "NAME": "Blood Of Kings",
+    "DESCRIPTION": "At the end of combat, heal 1 HP for each Vulnerable on you.",
+    "UPGRADE_DESCRIPTION": "At the end of combat, heal 1 HP for each Vulnerable on you. NL Gain 4 Vulnerable."
+  },
+
+  "${modID}:Clowder": {
+    "NAME": "Clowder",
+    "DESCRIPTION": "Next turn, draw 1 additional card and !M! random cards cost 1 less next turn. NL Exhaust."
+  },
+
+  "${modID}:CloseTheGap": {
+    "NAME": "Close the Gap",
+    "DESCRIPTION": "For the next !M! turns, ALL enemies lose 1 Strength and 1 Dexterity."
+  },
+
+  "${modID}:BloodRush": {
+    "NAME": "Blood Rush",
+    "DESCRIPTION": "Deal !D! damage, hits an additional time for each !M! ${modID}:Lion's_Heart. NL Gain 3 Vulnerable.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Hits ",
+      " times.)"
+    ]
+  },
+
+  "${modID}:SmellTheirFear": {
+    "NAME": "Smell Their Fear",
+    "DESCRIPTION": "Gain !M! Temporary Strength for each ${modID}:Reckless card in hand. NL Gain 1 ${modID}:Caution.",
+    "UPGRADE_DESCRIPTION": "Gain !M! Temporary Strength for each ${modID}:Reckless card in hand. NL Gain 2 ${modID}:Caution."
+  },
+
+  "${modID}:Unphased": {
+    "NAME": "Unphased",
+    "DESCRIPTION": "Gain !M! ${modID}:Unphased. NL Gain 1 Vulnerable."
+  },
+
+  "${modID}:TwistTheBlade": {
+    "NAME": "Twist The Blade",
+    "DESCRIPTION": "Pay !M! ${modID}:Lion's_Heart. Deal !D! damage. NL If the enemy has Vulnerable, deal !D! damage again.",
+    "EXTENDED_DESCRIPTION": [
+      "I do not have enough Lion's Heart."
+    ]
+  },
+
+  "${modID}:TasteTheAir": {
+    "NAME": "Taste the Air",
+    "DESCRIPTION": "Gain !M! Temporary Strength. NL Permanently increase this card's Temporary Strength gain by 2.",
+    "UPGRADE_DESCRIPTION": "Gain !M! Temporary Strength. NL Permanently increase this card's Temporary Strength gain by 3."
+  },
+
+  "${modID}:FatalBite": {
+    "NAME": "Fatal Bite",
+    "DESCRIPTION": "Deal !D! damage. NL Choose a card in hand, it costs 1 less and deals !M! more damage this combat.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Choose a card in hand, it costs 2 less and deals !M! more damage this combat."
+  },
+
+  "${modID}:OneOfThePride": {
+    "NAME": "One of the Pride",
+    "DESCRIPTION": "Gain ${modID}:Lion's_Heart equal to the amount of Strength on you. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain ${modID}:Lion's_Heart equal to the amount of Strength on you."
+  },
+
+  "${modID}:Valiance": {
+    "NAME": "Valiance",
+    "DESCRIPTION": "Gain 2 Block per Strength on you. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain 2 Block per Strength on you +4. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Gain ",
+      " Block.)"
+    ]
+  },
+
+  "${modID}:LeaveForDead": {
+    "NAME": "Leave for Dead",
+    "DESCRIPTION": "Deal !D! damage 3 times. Gain !M! Temporary Strength. NL Next turn, lose 1 Strength. NL ${modID}:Reckless.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage 4 times. Gain !M! Temporary Strength. NL Next turn, lose 1 Strength. NL ${modID}:Reckless."
+  },
+
+  "${modID}:Unsheath": {
+    "NAME": "Unsheath",
+    "DESCRIPTION": "Gain !M! Thorns. NL ${modID}:Reckless.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Gain !M! Thorns. NL ${modID}:Reckless."
+  },
+
+  "${modID}:Nourishment": {
+    "NAME": "Nourishment",
+    "DESCRIPTION": "Ethereal. NL Raise your Max HP by !M!. NL 20% chance for a random enemy to gain 2 Strength next turn. NL Exhaust."
+  },
+
+  "${modID}:DinDins": {
+    "NAME": "Din Dins",
+    "DESCRIPTION": "At the start of each turn add a *Nourishment into your hand."
+  },
+
+  "${modID}:FangsBared": {
+    "NAME": "Fangs Bared",
+    "DESCRIPTION": "${modID}:Reckless attacks deal !M! additional damage."
+  },
+
+  "${modID}:StandUpStraight": {
+    "NAME": "Stand up Straight",
+    "DESCRIPTION": "Choose a card in hand, it gains +!M! Block this combat. NL ${modID}:Reckless. NL Exhaust."
+  },
+
+  "${modID}:CleansingRay": {
+    "NAME": "Cleansing Ray",
+    "DESCRIPTION": "Gain !B! Block. NL This card gains +!M! Block for the rest of combat for each ${modID}:Reckless card in your hand."
+  },
+
+  "${modID}:WarmGlow": {
+    "NAME": "Warm Glow",
+    "DESCRIPTION": "Gain !M! ${modID}:Lion's_Heart. NL Gain 10 Temporary ${modID}:Caution. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !M! ${modID}:Lion's_Heart. NL Gain 10 Temporary ${modID}:Caution."
+  },
+
+  "${modID}:WitchsFamiliar": {
+    "NAME": "Witch's Familiar",
+    "DESCRIPTION": "Apply !M! Vulnerable to EVERYONE. NL Gain 1 ${modID}:Unphased. NL Exhaust."
+  },
+
+  "${modID}:StreetSmart": {
+    "NAME": "Street Smart",
+    "DESCRIPTION": "Deal !D! damage. NL Apply 1 ${modID}:Weary."
+  },
+
+  "${modID}:Jolt": {
+    "NAME": "Jolt",
+    "DESCRIPTION": "Reduce the cost of !M! card in hand by 1 this combat."
+  },
+
+  "${modID}:Hunt": {
+    "NAME": "Hunt",
+    "DESCRIPTION": "Deal !D! damage. NL Add a *Nourishment to your hand."
+  }
+
+}

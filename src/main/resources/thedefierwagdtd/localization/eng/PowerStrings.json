@@ -1,0 +1,144 @@
+{
+  "${modID}:PowerID": {
+    "NAME": "Ultimate Power",
+    "DESCRIPTIONS": [
+      "You are Very Cool and Strong."
+    ]
+  },
+
+  "${modID}:WearyPower": {
+    "NAME": "Weary",
+    "DESCRIPTIONS": [
+      "#yAttacks deal #b",
+      "% less damage for #b",
+      " turn.",
+      " turns."
+    ]
+  },
+
+  "${modID}:LionsHeartBuff": {
+    "NAME": "Lion's Heart",
+    "DESCRIPTIONS": ["At the end of combat, heal 1 #yHP for every 8 #yLion's #yHeart. ", "(", ")"]
+  },
+
+  "${modID}:BalancedCalmPower": {
+    "NAME": "Balanced Calm",
+    "DESCRIPTIONS": ["Whenever you play a Skill, gain ",  " #yLion's #yHeart."]
+  },
+
+  "${modID}:WhiskerWalkerPower": {
+    "NAME": "Whisker Walker",
+    "DESCRIPTIONS": ["Whenever you play a Reckless card, gain ",  " Block."]
+  },
+
+  "${modID}:OpportunityPower": {
+    "NAME": "Opportunity",
+    "DESCRIPTIONS": ["Whenever #yVulnerable is applied to ANYONE, deal ",  " damage to ALL enemies per #yVulnerable applied."]
+  },
+
+  "${modID}:CautionPower": {
+    "NAME": "Caution",
+    "DESCRIPTIONS": ["Decreases damage taken from #yReckless by ", ", decreases by 1 every turn."]
+  },
+
+  "${modID}:StartSmallPower": {
+    "NAME": "Start Small",
+    "DESCRIPTIONS": ["At turn start, gain ", " #yLion's #yHeart"]
+  },
+
+  "${modID}:UnstablePower": {
+    "NAME": "Unstable",
+    "DESCRIPTIONS": ["Gain ", " #yVulnerable next turn."]
+  },
+
+  "${modID}:VentingPower": {
+    "NAME": "Venting",
+    "DESCRIPTIONS": ["Gain ", " Temporary #yStrength next turn."]
+  },
+
+  "${modID}:FacingDownPower": {
+    "NAME": "Facing Down",
+    "DESCRIPTIONS": ["#yRetain ", " card and reduce its cost by 1.", " cards and reduce their cost by 1."]
+  },
+
+  "${modID}:RainyDayPower": {
+    "NAME": "Rainy Day",
+    "DESCRIPTIONS": ["Every 3 times you gain #yVulnerable, draw ", " card.", " cards."]
+  },
+
+  "${modID}:CustomDexterity": {
+    "NAME": "Dexterity",
+    "DESCRIPTIONS": ["Increases #yBlock gained by ", "Decreases #yBlock gained by ", "."]
+  },
+
+  "${modID}:LickWoundsPower": {
+    "NAME": "Lick Wounds",
+    "DESCRIPTIONS": ["At the end of combat, heal for ", "% of your missing HP."]
+  },
+
+  "${modID}:HeartfadePower": {
+    "NAME": "Heartfade",
+    "DESCRIPTIONS": ["At the start of your turn, lose ", " #yLion's #yHeart and draw ", " card.", " cards."]
+  },
+
+  "${modID}:KeenSensesPower": {
+    "NAME": "Keen Senses",
+    "DESCRIPTIONS": ["Whenever you play a Curse, gain ",  " Block."]
+  },
+
+  "${modID}:BattleFormPower": {
+    "NAME": "Battle Form",
+    "DESCRIPTIONS": ["At the start of your turn, gain ",  " Temporary Strength per 8 #yLion's #yHeart . (", ")"]
+  },
+
+  "${modID}:NapPower": {
+    "NAME": "Napping",
+    "DESCRIPTIONS": ["At the start of your next turn, gain ", " Block, apply ",  "Weak to ALL enemies, skip your turn.",
+      " Temporary Strength and heal for half your Lion's Heart.", "Sleeping..."]
+  },
+
+  "${modID}:BackAlleyPower": {
+    "NAME": "Back Alley",
+    "DESCRIPTIONS": ["The first ", " card", " cards"," you draw each turn costs 1 less this turn."]
+  },
+
+  "${modID}:AgilityPower": {
+    "NAME": "Agility",
+    "DESCRIPTIONS": ["At the end of your turn, gain ", " #yBlock per #yVulnerable on you."]
+  },
+
+  "${modID}:UnphasedPower": {
+    "NAME": "Unphased",
+    "DESCRIPTIONS": ["You no longer take extra damage from being #yVulnerable, decreases by 1 every turn."]
+  },
+
+  "${modID}:BloodOfKingsPower": {
+    "NAME": "Blood Of Kings",
+    "DESCRIPTIONS": ["At the end of combat, heal for ", " HP for each #yVulnerable on you."]
+  },
+
+  "${modID}:ClowderPower": {
+    "NAME": "Clowder",
+    "DESCRIPTIONS": ["Next turn, ", " card ", " cards ", "cost 1 less."]
+  },
+
+  "${modID}:CloseTheGapPower": {
+    "NAME": "Close The Gap",
+    "DESCRIPTIONS": ["For the next ", " turn, ", " turns, ", "at the start of your turn, ALL enemies lose 1 Strength and 1 Dexterity."]
+  },
+
+  "${modID}:DinDinsPower": {
+    "NAME": "Din Dins",
+    "DESCRIPTIONS": ["At the start of each turn, add ", " copy ", " copies ", "of #yNourishment into your hand."]
+  },
+
+  "${modID}:FangsBaredPower": {
+    "NAME": "FangsBared",
+    "DESCRIPTIONS": ["#yReckless attacks deal ", " additional damage."]
+  },
+
+  "${modID}:LoseCautionPower": {
+    "NAME": "Caution Down",
+    "DESCRIPTIONS": ["At the end of your turn, lose ", " #yCaution."]
+  }
+}
