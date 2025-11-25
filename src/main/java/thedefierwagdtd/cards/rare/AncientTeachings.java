@@ -34,7 +34,6 @@ public class AncientTeachings extends BaseCard {
     public AncientTeachings() {
         super(ID, info);
         setMagic(TEMP_STR_PER_COST, UPG_TEMP_STR_PER_COST);
-        setExhaust(true);
     }
 
     @Override
@@ -46,9 +45,9 @@ public class AncientTeachings extends BaseCard {
                 (AbstractCard c) -> true,
                 (cards) -> {
                     for (AbstractCard c : cards) {
-                        int cost = Math.max(0, c.costForTurn);
+                        int effectiveCost = Math.max(0, c.costForTurn);
 
-                        int totalTempStr = (cost * this.magicNumber);
+                        int totalTempStr = ((effectiveCost + 1) * this.magicNumber);
                         if (totalTempStr > 0) {
 
                             addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, totalTempStr), totalTempStr));

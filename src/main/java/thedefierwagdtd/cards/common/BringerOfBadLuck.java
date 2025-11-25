@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import thedefierwagdtd.cards.BaseCard;
 import thedefierwagdtd.character.TheDefier;
+import thedefierwagdtd.powers.ClowderPower;
 import thedefierwagdtd.util.CardStats;
 
 public class BringerOfBadLuck extends BaseCard{
@@ -26,10 +27,12 @@ public class BringerOfBadLuck extends BaseCard{
 
     private static final int DAMAGE = 6;
     private static final int UPG_DAMAGE = 2;
+    private static final int MAGIC = 1;
 
     public BringerOfBadLuck() {
         super(ID, info);
         setDamage(DAMAGE, UPG_DAMAGE);
+        setMagic(MAGIC);
     }
 
     @Override
@@ -37,5 +40,7 @@ public class BringerOfBadLuck extends BaseCard{
         addToBot((AbstractGameAction)new DamageAction((AbstractCreature)m, new DamageInfo((AbstractCreature)p,
                 this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
         addToBot((AbstractGameAction)new DiscardAction((AbstractCreature)p, (AbstractCreature)p, 1, false));
+        addToTop((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p,
+                (AbstractPower)new ClowderPower((AbstractCreature)p, this.magicNumber), this.magicNumber));
     }
 }

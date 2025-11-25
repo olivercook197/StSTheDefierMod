@@ -22,7 +22,7 @@ public class WhiskerWalker extends BaseCard {
     );
 
     private static final int MAGIC_NUMBER = 3;
-    private static final int MAGIC_NUMBER_UPG = 1;
+    private static final int MAGIC_NUMBER_UPG = 2;
 
     public WhiskerWalker() {
         super(ID, info);

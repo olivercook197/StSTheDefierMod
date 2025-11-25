@@ -42,6 +42,5 @@ public class Nap extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ApplyPowerAction(p, p,
                 new NapPower(p, block, magicNumber, customVar("STRENGTH"))));
-        addToBot((AbstractGameAction)new PressEndTurnButtonAction());
     }
 }

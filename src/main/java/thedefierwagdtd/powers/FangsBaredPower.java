@@ -1,9 +1,14 @@
 package thedefierwagdtd.powers;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageRandomEnemyAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import thedefierwagdtd.CustomTags.CustomTag;
 
 import static thedefierwagdtd.TheDefierModWAGDTD.makeID;
@@ -30,8 +35,10 @@ public class FangsBaredPower extends BasePower {
     }
 
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        if (card.hasTag(CustomTag.RECKLESS) && card.baseDamage > 0) {
-            card.flash();
+        if (card.hasTag(CustomTag.RECKLESS)) {
+            flash();
+            addToBot((AbstractGameAction)new DamageRandomEnemyAction(new DamageInfo(this.owner, this.amount, DamageInfo.DamageType.THORNS),
+                    AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         }
     }
 

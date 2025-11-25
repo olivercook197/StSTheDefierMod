@@ -10,6 +10,7 @@ import thedefierwagdtd.cards.BaseCard;
 import thedefierwagdtd.character.TheDefier;
 import thedefierwagdtd.powers.BalancedCalmPower;
 import thedefierwagdtd.powers.HeartfadePower;
+import thedefierwagdtd.powers.LionsHeartBuff;
 import thedefierwagdtd.powers.WearyPower;
 import thedefierwagdtd.util.CardStats;
 
@@ -22,19 +23,18 @@ public class BorrowedTime extends BaseCard {
             AbstractCard.CardTarget.SELF,
             0
     );
-    private static final int MAGIC_NUMBER = 3;
-    private static final int MAGIC_NUMBER_UPG = -3;
+    private static final int MAGIC_NUMBER = 8;
 
     public BorrowedTime() {
         super(ID, info);
-        setMagic(MAGIC_NUMBER, MAGIC_NUMBER_UPG);
+        setMagic(MAGIC_NUMBER);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (!upgraded){
+        if (upgraded){
             addToBot(new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p,
-                    (AbstractPower)new WearyPower((AbstractCreature)p, 1),
-                    1));
+                    (AbstractPower)new LionsHeartBuff(p, this.magicNumber),
+                    this.magicNumber));
         }
         addToBot(new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p,
                 (AbstractPower)new HeartfadePower((AbstractCreature)p, 1),

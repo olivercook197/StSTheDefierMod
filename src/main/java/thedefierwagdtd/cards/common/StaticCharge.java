@@ -42,7 +42,7 @@ public class StaticCharge extends BaseCard {
 
                         c.superFlash(Color.YELLOW.cpy());
 
-                        addToBot(new DamageAction(m, new DamageInfo(p, damage * effectiveCost, DamageInfo.DamageType.NORMAL),
+                        addToBot(new DamageAction(m, new DamageInfo(p, damage * (effectiveCost + 1), DamageInfo.DamageType.NORMAL),
                                 AbstractGameAction.AttackEffect.LIGHTNING));
 
                         addToBot(new ExhaustSpecificCardAction(c, p.hand));

@@ -31,7 +31,7 @@ public class UnphasedPower extends BasePower {
 
     public float atDamageFinalReceive(float damage, DamageInfo.DamageType type) {
         if (type == DamageInfo.DamageType.NORMAL && owner.hasPower(VulnerablePower.POWER_ID)) {
-            if (owner instanceof AbstractPlayer && ((AbstractPlayer) owner).hasRelic("OddMushroom")) {
+            if (owner instanceof AbstractPlayer && ((AbstractPlayer) owner).hasRelic("Odd Mushroom")) {
                 damage /= 1.25f;
             } else {
                 damage /= 1.5f;

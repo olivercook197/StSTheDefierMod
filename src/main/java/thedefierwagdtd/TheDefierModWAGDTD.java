@@ -359,18 +359,18 @@ public class TheDefierModWAGDTD implements
                     return;
                 }
 
-                // Ferocious Swipe
-                if (abstractCard.cardID.equals(FerociousSwipe.ID)) {
-                    AbstractPower lionsHeart = p.getPower(LionsHeartBuff.POWER_ID);
-                    int lhAmount = (lionsHeart == null ? 0 : lionsHeart.amount);
-
-                    if (lhAmount < 30) {
-                        addToBot(new RecklessAction(p));
-                    }
-
-                    isDone = true;
-                    return;
-                }
+//                // Ferocious Swipe
+//                if (abstractCard.cardID.equals(FerociousSwipe.ID)) {
+//                    AbstractPower lionsHeart = p.getPower(LionsHeartBuff.POWER_ID);
+//                    int lhAmount = (lionsHeart == null ? 0 : lionsHeart.amount);
+//
+//                    if (lhAmount < 30) {
+//                        addToBot(new RecklessAction(p));
+//                    }
+//
+//                    isDone = true;
+//                    return;
+//                }
 
                 addToBot(new RecklessAction(p));
                 isDone = true;

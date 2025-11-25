@@ -3,6 +3,7 @@ package thedefierwagdtd.actions;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -22,14 +23,24 @@ public class ChooseCardToAddBlock extends AbstractGameAction {
 
         if (this.duration == Settings.ACTION_DUR_FAST) {
 
-            if (p.hand.isEmpty()) {
+            CardGroup blockableCards = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+            for (AbstractCard c : p.hand.group) {
+                if (c.baseBlock > 0) {
+                    blockableCards.addToTop(c);
+                }
+            }
+
+            if (blockableCards.isEmpty()) {
                 isDone = true;
                 return;
             }
 
-            AbstractDungeon.handCardSelectScreen.open(
-                    "to increase Block.",
+            AbstractDungeon.gridSelectScreen.open(
+                    blockableCards,
                     1,
+                    "Select a card to increase Block.",
+                    false,
+                    false,
                     false,
                     false
             );
@@ -38,33 +49,22 @@ public class ChooseCardToAddBlock extends AbstractGameAction {
             return;
         }
 
-        if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
+        if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
 
-            for (AbstractCard c : AbstractDungeon.handCardSelectScreen.selectedCards.group) {
+            for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
 
                 c.baseBlock += blockIncrease;
                 c.applyPowers();
                 c.superFlash(Color.GOLD.cpy());
 
                 AbstractCard master = AbstractDungeon.player.masterDeck.getSpecificCard(c);
-
                 if (master != null) {
-                    master.misc += 1;
-                    master.baseBlock += master.misc;
+                    master.baseBlock += blockIncrease;
+                    master.applyPowers();
                 }
-
-                if (master != null) {
-                    c.misc = master.misc;
-                    c.baseBlock = c.misc;
-                }
-
-                c.applyPowers();
-
-                p.hand.addToTop(c);
             }
 
-            AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
-            AbstractDungeon.handCardSelectScreen.selectedCards.clear();
+            AbstractDungeon.gridSelectScreen.selectedCards.clear();
             isDone = true;
         }
 

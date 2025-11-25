@@ -54,5 +54,8 @@ public class BrushWithDeath extends BaseCard {
         if (p != null && p.hand.group.stream().anyMatch(c -> c.type == AbstractCard.CardType.CURSE)) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
+        else {
+            this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+        }
     }
 }

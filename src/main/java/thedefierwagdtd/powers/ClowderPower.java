@@ -1,6 +1,8 @@
 package thedefierwagdtd.powers;
 
 import com.badlogic.gdx.graphics.Color;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.ReduceCostForTurnAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
@@ -31,7 +33,7 @@ public class ClowderPower extends BasePower {
 
         flash();
 
-        addToBot(new DecreaseCardsCost(AbstractDungeon.player, this.amount, false));
+        addToBot((AbstractGameAction) new GainEnergyAction(this.amount));
 
         addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
     }

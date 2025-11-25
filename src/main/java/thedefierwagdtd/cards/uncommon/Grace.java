@@ -26,7 +26,7 @@ public class Grace extends BaseCard {
             -1 // X cost
     );
 
-    private static final int MAGIC_NUMBER = 12;
+    private static final int MAGIC_NUMBER = 10;
     private static final int MAGIC_NUMBER_UPG = -4;
 
     public Grace() {

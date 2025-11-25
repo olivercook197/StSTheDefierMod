@@ -29,8 +29,8 @@ public class MarkOfGreatness extends BaseCard {
     );
 
     private static final int DAMAGE = 1;
-    private static final int MAGIC_NUMBER = 4;
-    private static final int UPG_MAGIC_NUMBER = 3;
+    private static final int MAGIC_NUMBER = 6;
+    private static final int UPG_MAGIC_NUMBER = 4;
 
     public MarkOfGreatness() {
         super(ID, info);

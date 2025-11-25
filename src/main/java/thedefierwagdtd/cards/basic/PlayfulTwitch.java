@@ -27,7 +27,7 @@ public class PlayfulTwitch extends BaseCard {
     );
 
     private static final int MAGIC_NUMBER = 5;
-    private static final int UPG_MAGIC_NUMBER = 4;
+    private static final int UPG_MAGIC_NUMBER = 5;
 
     public PlayfulTwitch() {
         super(ID, info);

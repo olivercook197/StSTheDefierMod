@@ -24,7 +24,7 @@ public class Unsheath extends BaseCard {
             1
     );
 
-    private static final int BLOCK_UPG = 4;
+    private static final int BLOCK_UPG = 5;
     private static final int MAGIC_NUMBER = 5;
 
 

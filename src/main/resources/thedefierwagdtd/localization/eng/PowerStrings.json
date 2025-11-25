@@ -93,8 +93,8 @@
 
   "${modID}:NapPower": {
     "NAME": "Napping",
-    "DESCRIPTIONS": ["At the start of your next turn, gain ", " Block, apply ",  "Weak to ALL enemies, skip your turn.",
-      " Temporary Strength and heal for half your Lion's Heart.", "Sleeping..."]
+    "DESCRIPTIONS": ["At the start of your next turn, gain ", " #yBlock, apply ",  " #yWeak to ALL enemies, skip your turn.",
+      " Temporary #yStrength and heal for half your #yLion's #yHeart.", "Sleeping..."]
   },
 
   "${modID}:BackAlleyPower": {
@@ -140,5 +140,10 @@
   "${modID}:LoseCautionPower": {
     "NAME": "Caution Down",
     "DESCRIPTIONS": ["At the end of your turn, lose ", " #yCaution."]
+  },
+
+  "${modID}:RetainEnergyPower": {
+    "NAME": "Conserving",
+    "DESCRIPTIONS": ["Gain unspent [E] next turn"]
   }
 }

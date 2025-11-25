@@ -1,32 +1,22 @@
-package thedefierwagdtd.cards.common;
+package thedefierwagdtd.cards.tempCards;
 
-import basemod.abstracts.AbstractCardModifier;
-import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.LoseStrengthPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
-import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import com.megacrit.cardcrawl.vfx.combat.ScrapeEffect;
 import thedefierwagdtd.CustomTags.CustomTag;
-import thedefierwagdtd.actions.AddCopyExhaustEtherealCost;
 import thedefierwagdtd.cards.BaseCard;
+import thedefierwagdtd.cards.common.FerociousSwipe;
 import thedefierwagdtd.character.TheDefier;
-import thedefierwagdtd.powers.LionsHeartBuff;
 import thedefierwagdtd.util.CardStats;
 
-public class FerociousSwipe extends BaseCard {
-    public static final String ID = makeID(FerociousSwipe.class.getSimpleName());
+public class FerociousSwipeCopy extends BaseCard {
+    public static final String ID = makeID(FerociousSwipeCopy.class.getSimpleName());
     private static final CardStats info = new CardStats(
             TheDefier.Meta.CARD_COLOR,
             CardType.ATTACK,
@@ -38,11 +28,14 @@ public class FerociousSwipe extends BaseCard {
     private static final int DAMAGE_UPG = 1;
     private static final int MAGIC_NUMBER = 2;
 
-    public FerociousSwipe() {
+    public FerociousSwipeCopy() {
         super(ID, info);
         setMagic(MAGIC_NUMBER);
         setDamage(DAMAGE, DAMAGE_UPG);
         tags.add(CustomTag.RECKLESS);
+
+        setExhaust(true);
+        setEthereal(true);
     }
 
     @Override
@@ -56,9 +49,19 @@ public class FerociousSwipe extends BaseCard {
 
         AbstractCard clone = this.makeStatEquivalentCopy();
 
+        clone.cost++;
+        clone.costForTurn = clone.cost;
+        clone.isCostModified = true;
 
-        CardModifierManager.addModifier(clone, (AbstractCardModifier)new AddCopyExhaustEtherealCost(1));
+        clone.isEthereal = true;
+        clone.exhaust = true;
 
-        addToBot((AbstractGameAction)new MakeTempCardInHandAction(clone));
+        clone.keywords.add("Ethereal");
+        clone.keywords.add("Exhaust");
+
+        clone.rawDescription = clone.rawDescription + " NL Ethereal. NL Exhaust.";
+        clone.initializeDescription();
+
+        addToBot(new MakeTempCardInHandAction(clone, 1));
     }
 }

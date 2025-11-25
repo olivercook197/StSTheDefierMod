@@ -1,6 +1,8 @@
 package thedefierwagdtd.cards.uncommon;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.ModifyBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -20,44 +22,32 @@ public class CleansingRay extends BaseCard {
             0
     );
 
-    private static final int BLOCK = 3;
+    private static final int BASE_BLOCK = 4;
     private static final int MAGIC = 2;
-    private static final int UPG_MAGIC = 1;
+    private static final int UPG_MAGIC = 2;
 
     public CleansingRay() {
         super(ID, info);
         setMagic(MAGIC, UPG_MAGIC);
 
-        this.block = BLOCK;
+        this.baseBlock = BASE_BLOCK;
+        this.misc = BASE_BLOCK;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, p, this.block));
 
-        int recklessCount = 0;
-        for (AbstractCard c : p.hand.group) {
-            if (c.hasTag(CustomTag.RECKLESS)) {
-                recklessCount++;
-            }
-        }
-        this.block += recklessCount * this.magicNumber;
+        int recklessCount = (int) p.hand.group.stream()
+                .filter(c -> c.hasTag(CustomTag.RECKLESS))
+                .count();
 
-        this.baseBlock = this.block;
-        applyPowers();
+        addToBot((AbstractGameAction)new ModifyBlockAction(this.uuid, recklessCount * this.magicNumber));
     }
 
     @Override
     public void applyPowers() {
-        this.baseBlock = this.block;
-
+        this.baseBlock = this.misc;
         super.applyPowers();
-
-        this.isBlockModified = (this.block != this.baseBlock);
-    }
-
-    @Override
-    public void onMoveToDiscard() {
-        this.baseBlock = this.block;
     }
 }

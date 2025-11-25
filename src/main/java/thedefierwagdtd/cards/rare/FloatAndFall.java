@@ -28,8 +28,8 @@ public class FloatAndFall extends BaseCard {
             0
     );
 
-    private static final int MAGIC_NUMBER = 16;
-    private static final int UPG_MAGIC_NUMBER = -4;
+    private static final int MAGIC_NUMBER = 15;
+    private static final int UPG_MAGIC_NUMBER = -5;
 
     public FloatAndFall() {
         super(ID, info);
@@ -54,6 +54,9 @@ public class FloatAndFall extends BaseCard {
                 }
             }
         }
+
+        addToBot(new ApplyPowerAction((AbstractCreature) AbstractDungeon.player, (AbstractCreature) AbstractDungeon.player,
+                (AbstractPower) new LionsHeartBuff((AbstractCreature) AbstractDungeon.player, 5), 5));
     }
 
     @Override
