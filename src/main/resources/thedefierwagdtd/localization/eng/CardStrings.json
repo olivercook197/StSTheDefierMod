@@ -122,7 +122,8 @@
 
   "${modID}:SmoulderingSneer": {
     "NAME": "Smouldering Sneer",
-    "DESCRIPTION": "Next turn, gain !M! Temporary Strength and 1 Vulnerable."
+    "DESCRIPTION": "Next turn, gain !M! Temporary Strength and 1 Vulnerable.",
+    "UPGRADE_DESCRIPTION": "Next turn, gain !M! Temporary Strength and 1 Vulnerable. NL Gain 1 Dexterity"
   },
 
   "${modID}:FacingDown": {
@@ -302,7 +303,7 @@
 
   "${modID}:LingeringTingle": {
     "NAME": "Lingering Tingle",
-    "DESCRIPTION": "Adds a random Reckless card to your hand. NL Gain !M! ${modID}:Lion's_Heart. NL Exhaust.",
+    "DESCRIPTION": "Adds a random ${modID}:Reckless card to your hand. NL Gain !M! ${modID}:Lion's_Heart. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Adds a random Upgraded ${modID}:Reckless card to your hand. NL Gain !M! ${modID}:Lion's_Heart. NL Exhaust."
   },
 
@@ -388,8 +389,8 @@
 
   "${modID}:SmellTheirFear": {
     "NAME": "Smell Their Fear",
-    "DESCRIPTION": "Gain !M! Temporary Strength for each ${modID}:Reckless card in hand. NL Gain 1 ${modID}:Caution.",
-    "UPGRADE_DESCRIPTION": "Gain !M! Temporary Strength for each ${modID}:Reckless card in hand. NL Gain 2 ${modID}:Caution."
+    "DESCRIPTION": "Gain !M! Temporary Strength for each ${modID}:Reckless card in hand. NL Gain 2 ${modID}:Caution.",
+    "UPGRADE_DESCRIPTION": "Gain !M! Temporary Strength for each ${modID}:Reckless card in hand. NL Gain 2 ${modID}:Caution. NL Draw 1 card."
   },
 
   "${modID}:Unphased": {
@@ -482,7 +483,8 @@
 
   "${modID}:StreetSmart": {
     "NAME": "Street Smart",
-    "DESCRIPTION": "Deal !D! damage. NL Apply 1 ${modID}:Weary."
+    "DESCRIPTION": "Deal !D! damage. NL Apply 1 ${modID}:Weary.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Apply 1 ${modID}:Weary and 1 Weak."
   },
 
   "${modID}:Jolt": {

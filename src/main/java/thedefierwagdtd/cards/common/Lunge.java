@@ -26,14 +26,15 @@ public class Lunge extends BaseCard {
             CardTarget.ENEMY,
             0
     );
-    private static final int DAMAGE = 6;
-    private static final int MAGIC_NUMBER = 3;
+    private static final int DAMAGE = 5;
+    private static final int DAMAGE_UPG = 1;
+    private static final int MAGIC_NUMBER = 4;
     private static final int MAGIC_NUMBER_UPG = 3;
 
     public Lunge() {
         super(ID, info);
         setMagic(MAGIC_NUMBER, MAGIC_NUMBER_UPG);
-        setDamage(DAMAGE);
+        setDamage(DAMAGE, DAMAGE_UPG);
         tags.add(CustomTag.RECKLESS);
     }
 

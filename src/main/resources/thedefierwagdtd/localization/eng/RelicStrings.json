@@ -6,7 +6,6 @@
       "Gain [E] at the start of your turn. [E] is an energy icon."
     ]
   },
-
   "${modID}:TheLastWish": {
     "NAME": "The Last Wish",
     "FLAVOR": "You've always landed on your feet... what could go wrong?",
@@ -14,7 +13,6 @@
       "Every 9 times you take damage, you are healed for 20% of your Max HP and add a random #yDeath #yCurse to your deck."
     ]
   },
-
   "${modID}:EldersEye": {
     "NAME": "Elder's Eye",
     "FLAVOR": "Memories of distant ancestors seem to be imploring you to stop being so reckless.",
@@ -22,7 +20,6 @@
       "Start each combat with 1 #y${modID}:Caution. At the start of your turn, gain 1 #y${modID}:Caution."
     ]
   },
-
   "${modID}:AncestralCall": {
     "NAME": "Ancestral Call",
     "FLAVOR": "In the heat of battle, the rush of blood in your ears sounds like music.",
@@ -30,13 +27,91 @@
       "Whenever you gain #yStrength, gain an equal amount of #y${modID}:Lion's_Heart."
     ]
   },
-
   "${modID}:TotemOfLife": {
     "NAME": "Totem of Life",
     "FLAVOR": "Someone once told you pain was temporary, or was that a dream?",
     "DESCRIPTIONS": [
       "Replaces ",
-      ".[] NL Every 9 times you take damage, you are healed for 20% of your Max HP, add a random #yDeath #yCurse to your deck, and gain 1 #yIntangible."
+      ".[] Every 9 times you take damage, you are healed for 20% of your Max HP, add a random #yDeath #yCurse to your deck, and gain 1 #yIntangible."
+    ]
+  },
+  "${modID}:EndOfActBounty": {
+    "NAME": "Bounty",
+    "FLAVOR": "You have travelled land and sea searching for riches, but nowhere has been as strange as The Spire.",
+    "DESCRIPTIONS": [
+      "Having defeated the target, you may now choose a reward."
+    ]
+  },
+  "${modID}:EmptyWhiskeyBottle": {
+    "NAME": "Empty Whiskey Bottle",
+    "FLAVOR": "Once full, too long empty - as it was drained, a part of you changed.",
+    "DESCRIPTIONS": [
+      "Upon pickup, #yTransform a card, then #yUpgrade it.",
+      "Choose a card for "
+    ]
+  },
+  "${modID}:OrbRegalia": {
+    "NAME": "Orb Regalia",
+    "FLAVOR": "Seems pointless, but if polished you can see an amusing version of yourself looking back.",
+    "DESCRIPTIONS": [
+      "Upon pickup, #yRemove 2 cards from your deck.",
+      "Choose 2 cards for "
+    ]
+  },
+  "${modID}:GingerbreadHouse": {
+    "NAME": "Gingerbread House",
+    "FLAVOR": "The door doesn't even open, it must have suffered from the blight.",
+    "DESCRIPTIONS": [
+      "Upon pickup, #yUpgrade a card from your deck.",
+      "Choose a card for "
+    ]
+  },
+  "${modID}:MagicScreen": {
+    "NAME": "Magic Screen",
+    "FLAVOR": "When touching the knobs, shapes appear before you, only to disappear when shaken.",
+    "DESCRIPTIONS": [
+      "Upon pickup, #yUpgrade 2 random cards from your deck."
+    ]
+  },
+
+  "${modID}:SkunkTail": {
+    "NAME": "Skunk Tail",
+    "FLAVOR": "The tail from an ancient creature that lived long before the spire, it still stinks.",
+    "DESCRIPTIONS": [
+      "Upon pickup, #yRemove 3 random #yCurse cards from your deck."
+    ]
+  },
+
+  "${modID}:BlueBowtie": {
+    "NAME": "Blue Bowtie",
+    "FLAVOR": "You can't resist batting it away to watch how it glints in the air.",
+    "DESCRIPTIONS": [
+      "Upon pickup, Obtain 1 card and 1 #yRare card.",
+      "Blue Bowtie!"
+    ]
+  },
+
+  "${modID}:BlueBook": {
+    "NAME": "Blue Book",
+    "FLAVOR": "It is surprisingly comfortable to sit on, and gives you a slightly better line of sight.",
+    "DESCRIPTIONS": [
+      "Upon pickup, choose 1 card in your deck, it costs [E] less."
+    ]
+  },
+
+  "${modID}:OrangeBook": {
+    "NAME": "Orange Book",
+    "FLAVOR": "It is surprisingly comfortable to sit on, and gives you a slightly better line of sight.",
+    "DESCRIPTIONS": [
+      "Upon pickup, choose 1 card in your deck, it applies 2 #yVulnerable to EVERYONE when played."
+    ]
+  },
+
+  "${modID}:CyanBook": {
+    "NAME": "Cyan Book",
+    "FLAVOR": "It is surprisingly comfortable to sit on, and gives you a slightly better line of sight.",
+    "DESCRIPTIONS": [
+      "Upon pickup, choose 1 card in your deck, it causes you gain 4 #yVulnerable and 1 $#yUnphased when played."
     ]
   }
 }

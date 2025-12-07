@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.powers.WeakPower;
 import thedefierwagdtd.cards.BaseCard;
 import thedefierwagdtd.character.TheDefier;
 import thedefierwagdtd.powers.CustomDexterity;
@@ -42,5 +43,9 @@ public class StreetSmart extends BaseCard {
                 this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)m, (AbstractCreature)p,
                 (AbstractPower)new WearyPower((AbstractCreature)m, this.magicNumber), this.magicNumber));
+        if (upgraded) {
+            addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)m, (AbstractCreature)p,
+                    (AbstractPower)new WeakPower((AbstractCreature)m, this.magicNumber, false)));
+        }
     }
 }

@@ -6,6 +6,7 @@ import basemod.ReflectionHacks;
 import basemod.interfaces.*;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -15,8 +16,12 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.EventHelper;
+import com.megacrit.cardcrawl.map.MapEdge;
+import com.megacrit.cardcrawl.map.MapRoomNode;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.rooms.EventRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import javassist.CtBehavior;
@@ -27,8 +32,10 @@ import thedefierwagdtd.cards.common.FerociousSwipe;
 import thedefierwagdtd.cards.uncommon.BrushWithDeath;
 import thedefierwagdtd.cards.uncommon.StartSmall;
 import thedefierwagdtd.character.TheDefier;
+import thedefierwagdtd.events.EndOfActBountyRewardEvent;
 import thedefierwagdtd.powers.*;
 import thedefierwagdtd.relics.BaseRelic;
+import thedefierwagdtd.rooms.CustomEventRoom;
 import thedefierwagdtd.util.GeneralUtils;
 import thedefierwagdtd.util.KeywordInfo;
 import thedefierwagdtd.util.Sounds;
@@ -54,6 +61,7 @@ import java.lang.reflect.Modifier;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
+import static basemod.BaseMod.addEvent;
 import static java.lang.Math.*;
 
 
@@ -102,6 +110,8 @@ public class TheDefierModWAGDTD implements
         //If you want to set up a config panel, that will be done here.
         //You can find information about this on the BaseMod wiki page "Mod Config and Panel".
         BaseMod.registerModBadge(badgeTexture, info.Name, GeneralUtils.arrToString(info.Authors), info.Description, null);
+
+        addEvent("thedefierwagdtd:EndOfActBountyRewardEvent",EndOfActBountyRewardEvent.class);
     }
 
     /*----------Localization----------*/
@@ -452,4 +462,61 @@ public class TheDefierModWAGDTD implements
             }
         }
     }
+
+    public static MapRoomNode TeleportEvent(String eventID) {
+        System.out.println("Clearing prior room: " + AbstractDungeon.lastCombatMetricKey);
+        AbstractRoom room = AbstractDungeon.getCurrRoom();
+        AbstractDungeon.player.resetControllerValues();
+        AbstractDungeon.effectList.clear();
+        AbstractDungeon.topLevelEffects.clear();
+        AbstractDungeon.topLevelEffectsQueue.clear();
+        AbstractDungeon.effectsQueue.clear();
+        AbstractDungeon.dungeonMapScreen.dismissable = true;
+        AbstractDungeon.dungeonMapScreen.map.legend.isLegendHighlighted = false;
+        AbstractDungeon.player.orbs.clear();
+        AbstractDungeon.player.animX = 0.0F;
+        AbstractDungeon.player.animY = 0.0F;
+        AbstractDungeon.player.hideHealthBar();
+        AbstractDungeon.player.hand.clear();
+        AbstractDungeon.player.powers.clear();
+        AbstractDungeon.player.drawPile.clear();
+        AbstractDungeon.player.discardPile.clear();
+        AbstractDungeon.player.exhaustPile.clear();
+        AbstractDungeon.player.limbo.clear();
+        AbstractDungeon.player.loseBlock(true);
+        AbstractDungeon.player.damagedThisCombat = 0;
+        GameActionManager.turn = 1;
+        AbstractDungeon.actionManager.monsterQueue.clear();
+        AbstractDungeon.actionManager.monsterAttacksQueued = true;
+        AbstractDungeon.actionManager.clear();
+        MapRoomNode cur = AbstractDungeon.currMapNode;
+        MapRoomNode node = new MapRoomNode(cur.x, cur.y);
+        node.room = (AbstractRoom)new CustomEventRoom(EventHelper.getEvent(eventID));
+        ArrayList<MapEdge> curEdges = cur.getEdges();
+        for (MapEdge edge : curEdges)
+            node.addEdge(edge);
+        AbstractDungeon.player.releaseCard();
+        AbstractDungeon.overlayMenu.hideCombatPanels();
+        AbstractDungeon.previousScreen = null;
+        AbstractDungeon.dynamicBanner.hide();
+        AbstractDungeon.dungeonMapScreen.closeInstantly();
+        AbstractDungeon.closeCurrentScreen();
+        AbstractDungeon.topPanel.unhoverHitboxes();
+        AbstractDungeon.fadeIn();
+        AbstractDungeon.effectList.clear();
+        AbstractDungeon.topLevelEffects.clear();
+        AbstractDungeon.topLevelEffectsQueue.clear();
+        AbstractDungeon.effectsQueue.clear();
+        AbstractDungeon.dungeonMapScreen.dismissable = true;
+        AbstractDungeon.nextRoom = node;
+        node.taken = true;
+        AbstractDungeon.setCurrMapNode(node);
+        AbstractDungeon.getCurrRoom().onPlayerEntry();
+        AbstractDungeon.scene.nextRoom(node.room);
+        AbstractDungeon.rs = (node.room.event instanceof com.megacrit.cardcrawl.events.AbstractImageEvent) ? AbstractDungeon.RenderScene.EVENT : AbstractDungeon.RenderScene.NORMAL;
+        return node;
+    }
+
+
+
 }

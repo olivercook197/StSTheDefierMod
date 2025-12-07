@@ -17,5 +17,54 @@
       "[Leave]",
       "Select card to remove. (You can also stick extra text like this in here.)"
     ]
+  },
+  "thedefierwagdtd:EndOfActBountyRewardEvent": {
+    "NAME": "Target Defeated",
+    "DESCRIPTIONS": [
+      "You meet your client in a dingy bar, with all sorts of ~unusual~ denizens filling the air with their #r~odour~ and #r~noise~ . Although not your preferred crowd, you certainly feel like you share more in common with them than those that live their lives in quiet comfort. In return for completing the bounty, a selection of #grewards are available to you.",
+      "There is nothing here that interests you, you take the #ygold and pick up another bounty, whose target resides further up the Spire.",
+      "Along with your #gprize, you pick up another bounty, whose target resides further up the Spire.",
+      "Along with your #gprize, you pick up another bounty, whose target resides further up the Spire.",
+      "Along with your #gprize, you pick up another bounty, whose target resides further up the Spire.",
+      "Along with your #gprize, you pick up another bounty, whose target resides further up the Spire.",
+      "Along with your #gprize, you pick up another bounty, whose target resides further up the Spire.",
+      "Along with your #gprize, you pick up another bounty, whose target resides further up the Spire.",
+      "Along with your #gprize, you pick up another bounty, whose target resides further up the Spire.",
+      "Along with your #gprize, you pick up another bounty, whose target resides further up the Spire.",
+      "Along with your #gprize, you pick up another bounty, whose target resides further up the Spire.",
+      "Along with your #gprize, you pick up another bounty, whose target resides further up the Spire.",
+      "Along with your #gprize, you pick up another bounty, whose target resides further up the Spire.",
+      "Along with your #gprize, you pick up another bounty, whose target resides further up the Spire.",
+      "Along with your #gprize, you pick up another bounty, whose target resides further up the Spire.",
+      "Along with your #gprize, you pick up another bounty, whose target resides further up the Spire."
+    ],
+    "OPTIONS": [
+      "Gain 150 gold",
+      "#b[Sketchy #bSalesman] TRANSFORM_AND_UPGRADE.",
+      "#r[Wispy #rWizard] REMOVE_2_CARDS.",
+      "#y[Dubious #yDealer] UPGRADE.",
+      "[Leave] UPGRADE_2_RANDOM",
+      "[Buy] REMOVE_3_CURSES",
+      "[Sell] OBTAIN_RARE_CARD",
+      "MODIFY_REDUCE_COST_OF_CARD.",
+      "MODIFY_APPLY_VULNERABLE_A",
+      "[Trade-In] MODIFY_APPLY_VULNERABLE_B",
+      "RANDOM_RARE_RELIC ",
+      "MAX_HP.",
+      "[Learn Dark Arts] OBTAIN_BLACK_STAR",
+      "Choose a card to Transform and Upgrade.",
+      "Choose 2 cards to Remove.",
+      "Leave",
+      "No cards to remove.",
+      "[Buy Collection] #rLose #r",
+      " #rGold. #gObtain #gPM #gCollection.",
+      "[Buy Decree] #rLose #r",
+      " #rGold. #gObtain #gBanishing #gDecree.",
+      "[Sell Hat] #gGain #g",
+      " #gGold. #rLose #ryour #rHat.",
+      "No Hat to sell.",
+      "Vendor not here today.",
+      "Sold out"
+    ]
   }
 }

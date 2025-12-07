@@ -154,7 +154,6 @@ public class TheDefier extends CustomPlayer {
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
-        retVal.add(Defend.ID);
         retVal.add(Surge.ID);
         retVal.add(PlayfulTwitch.ID);
 
@@ -181,7 +180,7 @@ public class TheDefier extends CustomPlayer {
 
     @Override
     public int getAscensionMaxHPLoss() {
-        return 9; //Max hp reduction at ascension 14+
+        return 10; //Max hp reduction at ascension 14+
     }
 
     @Override

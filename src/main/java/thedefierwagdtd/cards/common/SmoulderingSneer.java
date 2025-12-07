@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.DexterityPower;
 import thedefierwagdtd.CustomTags.CustomTag;
 import thedefierwagdtd.cards.BaseCard;
 import thedefierwagdtd.character.TheDefier;
@@ -39,5 +40,9 @@ public class SmoulderingSneer extends BaseCard {
                 (AbstractPower)new VentingPower((AbstractCreature)p, this.magicNumber), this.magicNumber));
         addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p,
                 (AbstractPower)new UnstablePower((AbstractCreature)p, 1), 1));
+        if (upgraded) {
+            addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p,
+                    (AbstractPower)new DexterityPower((AbstractCreature)p, 1), 1));
+        }
     }
 }

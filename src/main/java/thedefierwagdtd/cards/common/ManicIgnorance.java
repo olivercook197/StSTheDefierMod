@@ -23,7 +23,7 @@ public class ManicIgnorance extends BaseCard {
             4
     );
     private static final int BLOCK = 20;
-    private static final int BLOCK_UPG = 7;
+    private static final int BLOCK_UPG = 9;
     private static final int MAGIC_NUMBER = 3;
 
     public ManicIgnorance() {

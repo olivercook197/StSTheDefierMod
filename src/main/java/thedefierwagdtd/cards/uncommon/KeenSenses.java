@@ -23,7 +23,7 @@ public class KeenSenses extends BaseCard {
     );
 
     private static final int MAGIC_NUMBER = 4;
-    private static final int MAGIC_NUMBER_UPG = 2;
+    private static final int MAGIC_NUMBER_UPG = 3;
 
     public KeenSenses() {
         super(ID, info);

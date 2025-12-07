@@ -54,13 +54,11 @@ public class SmellTheirFear extends BaseCard {
                     (AbstractPower)new LoseStrengthPower((AbstractCreature)p, this.magicNumber), this.magicNumber));
         }
 
+        addToTop((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p,
+                (AbstractPower)new CautionPower((AbstractCreature)p, 2), 2));
+
         if (upgraded) {
-            addToTop((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p,
-                    (AbstractPower)new CautionPower((AbstractCreature)p, 2), 2));
-        }
-        else {
-            addToTop((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p,
-                    (AbstractPower)new CautionPower((AbstractCreature)p, 1), 1));
+            addToTop((AbstractGameAction)new DrawCardAction((AbstractCreature)p, 1));
         }
     }
 }
