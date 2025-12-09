@@ -91,8 +91,8 @@ public class TotemOfLife extends BaseRelic {
         addToTop(new ApplyPowerAction(
                 AbstractDungeon.player,
                 AbstractDungeon.player,
-                new IntangiblePlayerPower(AbstractDungeon.player, 1),
-                1
+                new IntangiblePlayerPower(AbstractDungeon.player, 2),
+                2
         ));
 
         this.flash();

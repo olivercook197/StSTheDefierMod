@@ -2,33 +2,23 @@ package thedefierwagdtd;
 
 import basemod.AutoAdd;
 import basemod.BaseMod;
-import basemod.ReflectionHacks;
 import basemod.interfaces.*;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.EventHelper;
 import com.megacrit.cardcrawl.map.MapEdge;
 import com.megacrit.cardcrawl.map.MapRoomNode;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
-import com.megacrit.cardcrawl.rooms.EventRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
-import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
-import javassist.CtBehavior;
 import thedefierwagdtd.CustomTags.CustomTag;
 import thedefierwagdtd.actions.RecklessAction;
 import thedefierwagdtd.cards.BaseCard;
-import thedefierwagdtd.cards.common.FerociousSwipe;
 import thedefierwagdtd.cards.uncommon.BrushWithDeath;
 import thedefierwagdtd.cards.uncommon.StartSmall;
 import thedefierwagdtd.character.TheDefier;
@@ -62,7 +52,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 import static basemod.BaseMod.addEvent;
-import static java.lang.Math.*;
 
 
 @SpireInitializer

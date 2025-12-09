@@ -32,14 +32,14 @@
     "FLAVOR": "Someone once told you pain was temporary, or was that a dream?",
     "DESCRIPTIONS": [
       "Replaces ",
-      ".[] Every 9 times you take damage, you are healed for 20% of your Max HP, add a random #yDeath #yCurse to your deck, and gain 1 #yIntangible."
+      ".[] Every 9 times you take damage, you are healed for 20% of your Max HP, add a random #yDeath #yCurse to your deck, and gain 2 #yIntangible."
     ]
   },
   "${modID}:EndOfActBounty": {
     "NAME": "Bounty",
     "FLAVOR": "You have travelled land and sea searching for riches, but nowhere has been as strange as The Spire.",
     "DESCRIPTIONS": [
-      "Having defeated the target, you may now choose a reward."
+      "You can now select a special event as a free action at Rest Sites."
     ]
   },
   "${modID}:EmptyWhiskeyBottle": {

@@ -1,14 +1,18 @@
 package thedefierwagdtd.events;
 
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.AbstractImageEvent;
 import com.megacrit.cardcrawl.localization.EventStrings;
+import com.megacrit.cardcrawl.map.MapRoomNode;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.BlackStar;
 
+import com.megacrit.cardcrawl.rooms.RestRoom;
+import com.megacrit.cardcrawl.screens.stats.CampfireChoice;
 import thedefierwagdtd.relics.*;
 
 import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.player;
@@ -263,13 +267,23 @@ public class EndOfActBountyRewardEvent extends AbstractImageEvent {
     }
 
     private void finishEvent() {
-        if (player.hasRelic("thedefierwagdtd:EndOfActBounty")) {
-            player.loseRelic("thedefierwagdtd:EndOfActBounty");
+        AbstractPlayer p = AbstractDungeon.player;
+
+        if (p.hasRelic("thedefierwagdtd:EndOfActBounty")) {
+            p.loseRelic("thedefierwagdtd:EndOfActBounty");
         }
-        dispose();
-        AbstractDungeon.currMapNode.taken = true;
-        AbstractDungeon.rs = AbstractDungeon.RenderScene.NORMAL;
-        AbstractDungeon.combatRewardScreen.reopen();
+
+        MapRoomNode node = AbstractDungeon.currMapNode;
+        node.room = new RestRoom();
+        RestRoom rest = (RestRoom) node.room;
+
+        rest.onPlayerEntry();
+        rest.campfireUI.reopen();
+
+        AbstractDungeon.rs = AbstractDungeon.RenderScene.CAMPFIRE;
+
+        AbstractDungeon.topPanel.unhoverHitboxes();
+        AbstractDungeon.overlayMenu.hideCombatPanels();
     }
 
     public EndOfActBounty bountyRelic;

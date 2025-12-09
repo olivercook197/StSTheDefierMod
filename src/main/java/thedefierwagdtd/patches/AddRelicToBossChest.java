@@ -17,7 +17,6 @@ public class AddRelicToBossChest {
         if (!(__instance instanceof MonsterRoomBoss)) return;
         if (!(AbstractDungeon.player instanceof TheDefier)) return;
 
-        // Only add once, when reward list has just been created
         boolean justOpenedRewards = !__instance.rewards.isEmpty();
         boolean doesNotAlreadyContain = __instance.rewards.stream()
                 .noneMatch(r -> r.relic instanceof EndOfActBounty);

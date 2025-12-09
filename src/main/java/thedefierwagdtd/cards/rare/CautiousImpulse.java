@@ -24,7 +24,7 @@ public class CautiousImpulse extends BaseCard {
             1
     );
 
-    private static final int MAGIC_NUMBER = 6;
+    private static final int MAGIC_NUMBER = 7;
 
     public CautiousImpulse() {
         super(ID, info);

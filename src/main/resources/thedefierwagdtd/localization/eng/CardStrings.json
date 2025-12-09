@@ -350,8 +350,7 @@
 
   "${modID}:StaticCharge": {
     "NAME": "Static Charge",
-    "DESCRIPTION": "Choose a card in hand to Exhaust. NL Deal !D! damage and an additional !D! for each [E] it cost.",
-    "UPGRADE_DESCRIPTION": "Choose a card in hand to Exhaust. NL Deal !D! damage for each [E] it cost."
+    "DESCRIPTION": "Choose a card in hand to Exhaust. NL Deal !D! damage and an additional !D! for each [E] it cost."
   },
 
   "${modID}:PlayWithFood": {

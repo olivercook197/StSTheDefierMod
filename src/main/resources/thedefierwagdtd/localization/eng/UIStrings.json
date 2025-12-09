@@ -19,5 +19,13 @@
       " NL Apply 2 Vulnerable to EVERYONE.",
       " NL Gain 4 Vulnerable and 1 ${modID}:Unphased."
     ]
+  },
+
+  "thedefierwagdtd:EndOfActBountyOption": {
+    "TEXT": [
+      "Collect Bounty (Free Action)",
+      "Start the Bounty event.",
+      ""
+    ]
   }
 }
