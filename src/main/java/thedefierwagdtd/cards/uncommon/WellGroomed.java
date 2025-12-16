@@ -22,8 +22,8 @@ public class WellGroomed extends BaseCard {
             0
     );
 
-    private static final int MAGIC_NUMBER = 9;
-    private static final int MAGIC_NUMBER_UPG = 4;
+    private static final int MAGIC_NUMBER = 10;
+    private static final int MAGIC_NUMBER_UPG = 5;
 
 
     public WellGroomed() {

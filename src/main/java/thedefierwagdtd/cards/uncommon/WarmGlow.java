@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.LoseStrengthPower;
+import com.megacrit.cardcrawl.powers.RegenPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import thedefierwagdtd.cards.BaseCard;
 import thedefierwagdtd.character.TheDefier;
@@ -38,7 +39,7 @@ public class WarmGlow extends BaseCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ApplyPowerAction((AbstractCreature) AbstractDungeon.player, (AbstractCreature) AbstractDungeon.player,
-                (AbstractPower) new LionsHeartBuff((AbstractCreature) AbstractDungeon.player, magicNumber), magicNumber));
+                (AbstractPower) new RegenPower((AbstractCreature) AbstractDungeon.player, magicNumber), magicNumber));
         addToBot(new ApplyPowerAction((AbstractCreature) AbstractDungeon.player, (AbstractCreature) AbstractDungeon.player,
                 (AbstractPower) new CautionPower((AbstractCreature) AbstractDungeon.player, 10), 10));
         addToBot(new ApplyPowerAction((AbstractCreature) AbstractDungeon.player, (AbstractCreature) AbstractDungeon.player,

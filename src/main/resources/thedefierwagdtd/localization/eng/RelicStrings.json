@@ -111,7 +111,7 @@
     "NAME": "Cyan Book",
     "FLAVOR": "It is surprisingly comfortable to sit on, and gives you a slightly better line of sight.",
     "DESCRIPTIONS": [
-      "Upon pickup, choose 1 card in your deck, it causes you gain 4 #yVulnerable and 1 $#yUnphased when played."
+      "Upon pickup, choose 1 card in your deck, it causes you gain 4 #yVulnerable and 1 #y$Unfazed when played."
     ]
   }
 }

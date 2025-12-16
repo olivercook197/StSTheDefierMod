@@ -25,8 +25,8 @@ public class ChooseCardToRemoveFromDeckAction extends AbstractGameAction {
             AbstractDungeon.handCardSelectScreen.open(
                     "permanently remove from your deck.",
                     this.amount,
-                    false, // not any number
-                    false  // must pick at least one
+                    false,
+                    false
             );
 
             tickDuration();

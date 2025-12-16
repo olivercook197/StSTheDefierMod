@@ -1,19 +1,16 @@
 package thedefierwagdtd.cards.uncommon;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.powers.RegenPower;
 import thedefierwagdtd.cards.BaseCard;
 import thedefierwagdtd.cards.tempCards.Nourishment;
 import thedefierwagdtd.character.TheDefier;
-import thedefierwagdtd.powers.AgilityPower;
 import thedefierwagdtd.powers.DinDinsPower;
-import thedefierwagdtd.powers.UnphasedPower;
 import thedefierwagdtd.util.CardStats;
 
 public class DinDins extends BaseCard {
@@ -40,6 +37,7 @@ public class DinDins extends BaseCard {
         addToBot(new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p,
                 (AbstractPower)new DinDinsPower((AbstractCreature)p, this.magicNumber),
                 this.magicNumber));
+        addToBot(new ApplyPowerAction(p, p, new RegenPower(p, 3), 3));
     }
 
     public void upgrade() {

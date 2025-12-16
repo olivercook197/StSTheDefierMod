@@ -21,7 +21,7 @@ public class LoseCautionPower extends BasePower {
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);
     }
 
-    public void atEndOfTurn(boolean isPlayer) {
+    public void atStartOfTurn() {
         flash();
         addToBot(new ApplyPowerAction(owner, owner, new CautionPower(owner, -this.amount), -this.amount));
         addToBot(new RemoveSpecificPowerAction(owner, owner, this));

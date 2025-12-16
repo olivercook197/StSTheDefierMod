@@ -3,6 +3,7 @@ package thedefierwagdtd.cards.uncommon;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -47,6 +48,7 @@ public class Grace extends BaseCard {
                 this.magicNumber,
                 lhAmount
         ));
+        addToBot(new GainEnergyAction(1));
     }
 
 

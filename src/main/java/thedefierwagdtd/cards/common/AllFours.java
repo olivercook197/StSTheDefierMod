@@ -26,7 +26,7 @@ public class AllFours extends BaseCard {
             0
     );
     private static final int BLOCK = 6;
-    private static final int BLOCK_UPG = 3;
+    private static final int BLOCK_UPG = 4;
 
     public AllFours() {
         super(ID, info);

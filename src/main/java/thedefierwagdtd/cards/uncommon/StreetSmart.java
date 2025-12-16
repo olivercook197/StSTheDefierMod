@@ -42,10 +42,10 @@ public class StreetSmart extends BaseCard {
         addToBot((AbstractGameAction)new DamageAction((AbstractCreature)m, new DamageInfo((AbstractCreature)p,
                 this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)m, (AbstractCreature)p,
-                (AbstractPower)new WearyPower((AbstractCreature)m, this.magicNumber), this.magicNumber));
+                (AbstractPower)new WeakPower((AbstractCreature)m, this.magicNumber, false)));
         if (upgraded) {
             addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)m, (AbstractCreature)p,
-                    (AbstractPower)new WeakPower((AbstractCreature)m, this.magicNumber, false)));
+                    (AbstractPower)new WearyPower((AbstractCreature)m, this.magicNumber), this.magicNumber));
         }
     }
 }

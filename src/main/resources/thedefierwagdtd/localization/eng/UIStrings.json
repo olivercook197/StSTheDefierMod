@@ -17,7 +17,7 @@
   "${modID}:CardModifiers": {
     "TEXT": [
       " NL Apply 2 Vulnerable to EVERYONE.",
-      " NL Gain 4 Vulnerable and 1 ${modID}:Unphased."
+      " NL Gain 4 Vulnerable and 1 ${modID}:Unfazed."
     ]
   },
 

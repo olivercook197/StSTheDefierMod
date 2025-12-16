@@ -24,13 +24,14 @@ public class BreakDefences extends BaseCard {
     );
 
     private static final int DAMAGE = 7;
-    private static final int UPG_DAMAGE = 3;
+    private static final int UPG_DAMAGE = 4;
     private static final int MAGIC_NUMBER = 3;
+    private static final int UPG_MAGIC_NUMBER = 1;
 
     public BreakDefences() {
         super(ID, info);
         setDamage(DAMAGE, UPG_DAMAGE);
-        setMagic(MAGIC_NUMBER);
+        setMagic(MAGIC_NUMBER, UPG_MAGIC_NUMBER);
     }
 
     @Override

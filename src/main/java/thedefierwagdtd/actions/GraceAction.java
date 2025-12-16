@@ -16,7 +16,7 @@ public class GraceAction extends AbstractGameAction {
     private final AbstractPlayer p;
     private final boolean freeToPlayOnce;
     private final int energyOnUse;
-    private final int magicNumber; // divisor for Lion’s Heart (12 or 8)
+    private final int magicNumber;
     private final int lionsHeart;
 
     public GraceAction(AbstractPlayer p, boolean freeToPlayOnce, int energyOnUse, int magicNumber, int lionsHeart) {
@@ -47,7 +47,7 @@ public class GraceAction extends AbstractGameAction {
         int dexPer = (int) Math.floor((float) lionsHeart / Math.max(1, magicNumber));
 
         if (dexPer > 0) {
-            int repeats = x + 1; // always X+1 times
+            int repeats = x + 1;
             for (int i = 0; i < repeats; i++) {
                 addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, dexPer), dexPer));
             }

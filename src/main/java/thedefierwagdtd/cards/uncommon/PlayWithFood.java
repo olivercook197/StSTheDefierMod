@@ -15,6 +15,8 @@ import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import thedefierwagdtd.cards.BaseCard;
 import thedefierwagdtd.character.TheDefier;
 import thedefierwagdtd.powers.KeenSensesPower;
+import thedefierwagdtd.powers.UnstablePower;
+import thedefierwagdtd.powers.VentingPower;
 import thedefierwagdtd.util.CardStats;
 
 public class PlayWithFood extends BaseCard {
@@ -42,9 +44,7 @@ public class PlayWithFood extends BaseCard {
             addToBot((AbstractGameAction)new GainBlockAction(p, p, this.block));
         }
         addToBot((AbstractGameAction) new GainEnergyAction(this.magicNumber));
-        AbstractMonster randomEnemy = AbstractDungeon.getMonsters()
-                .getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
-        addToBot((AbstractGameAction)new ApplyPowerAction(randomEnemy, p,
-                (AbstractPower)new GainStrengthPower(randomEnemy, 1), 1));
+        addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p,
+                (AbstractPower)new UnstablePower((AbstractCreature)p, 1), 1));
     }
 }

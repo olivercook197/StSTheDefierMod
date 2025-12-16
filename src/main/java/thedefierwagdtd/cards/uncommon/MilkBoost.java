@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.BerserkPower;
+import com.megacrit.cardcrawl.powers.RegenPower;
 import thedefierwagdtd.cards.BaseCard;
 import thedefierwagdtd.character.TheDefier;
 import thedefierwagdtd.powers.LionsHeartBuff;
@@ -37,6 +38,7 @@ public class MilkBoost extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ReducePowerAction(p, p, LionsHeartBuff.POWER_ID, this.magicNumber));
         addToBot(new ApplyPowerAction(p, p, new BerserkPower(p, 1), 1));
+        addToBot(new ApplyPowerAction(p, p, new RegenPower(p, 3), 3));
     }
 
     @Override

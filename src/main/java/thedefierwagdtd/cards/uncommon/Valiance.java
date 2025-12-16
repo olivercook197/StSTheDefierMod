@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.LoseStrengthPower;
+import com.megacrit.cardcrawl.powers.RegenPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import thedefierwagdtd.cards.BaseCard;
 import thedefierwagdtd.character.TheDefier;
@@ -42,6 +43,7 @@ public class Valiance extends BaseCard {
         int amount = (str == null ? 0 : str.amount);
         addToBot((AbstractGameAction)new GainBlockAction((AbstractCreature)p, (AbstractCreature)p,
                 this.block + amount * this.magicNumber));
+        addToBot(new ApplyPowerAction(p, p, new RegenPower(p, 2)));
     }
 
     public void applyPowers() {

@@ -2,6 +2,8 @@ package thedefierwagdtd;
 
 import basemod.AutoAdd;
 import basemod.BaseMod;
+import basemod.eventUtil.AddEventParams;
+import basemod.eventUtil.EventUtils;
 import basemod.interfaces.*;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -25,6 +27,7 @@ import thedefierwagdtd.character.TheDefier;
 import thedefierwagdtd.events.EndOfActBountyRewardEvent;
 import thedefierwagdtd.powers.*;
 import thedefierwagdtd.relics.BaseRelic;
+import thedefierwagdtd.relics.EndOfActBounty;
 import thedefierwagdtd.rooms.CustomEventRoom;
 import thedefierwagdtd.util.GeneralUtils;
 import thedefierwagdtd.util.KeywordInfo;
@@ -100,7 +103,19 @@ public class TheDefierModWAGDTD implements
         //You can find information about this on the BaseMod wiki page "Mod Config and Panel".
         BaseMod.registerModBadge(badgeTexture, info.Name, GeneralUtils.arrToString(info.Authors), info.Description, null);
 
-        addEvent("thedefierwagdtd:EndOfActBountyRewardEvent",EndOfActBountyRewardEvent.class);
+        BaseMod.addEvent(
+                new AddEventParams.Builder(
+                        EndOfActBountyRewardEvent.ID,
+                        EndOfActBountyRewardEvent.class
+                )
+                        .eventType(EventUtils.EventType.ONE_TIME)
+                        .spawnCondition(() ->
+                                AbstractDungeon.player != null &&
+                                        AbstractDungeon.player.hasRelic(EndOfActBounty.RELIC_ID)
+                        )
+                        .create()
+        );
+
     }
 
     /*----------Localization----------*/
@@ -504,6 +519,13 @@ public class TheDefierModWAGDTD implements
         AbstractDungeon.scene.nextRoom(node.room);
         AbstractDungeon.rs = (node.room.event instanceof com.megacrit.cardcrawl.events.AbstractImageEvent) ? AbstractDungeon.RenderScene.EVENT : AbstractDungeon.RenderScene.NORMAL;
         return node;
+    }
+
+    public void receiveEditEvents() {
+        BaseMod.addEvent(
+                EndOfActBountyRewardEvent.ID,
+                EndOfActBountyRewardEvent.class
+        );
     }
 
 

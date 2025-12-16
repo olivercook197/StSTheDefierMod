@@ -37,7 +37,7 @@ public class Clowder extends BaseCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToTop((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p,
-                (AbstractPower)new DrawCardNextTurnPower((AbstractCreature)p, this.magicNumber - 1), this.magicNumber - 1));
+                (AbstractPower)new DrawCardNextTurnPower((AbstractCreature)p, this.magicNumber), this.magicNumber));
         addToTop((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p,
                 (AbstractPower)new ClowderPower((AbstractCreature)p, this.magicNumber), this.magicNumber));
 

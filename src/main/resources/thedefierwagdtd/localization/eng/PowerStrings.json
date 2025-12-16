@@ -38,7 +38,7 @@
 
   "${modID}:CautionPower": {
     "NAME": "Caution",
-    "DESCRIPTIONS": ["Decreases damage taken from #yReckless by ", ", decreases by 1 every turn."]
+    "DESCRIPTIONS": ["Decreases damage taken from #yReckless by ", " and decreases damage from enemies by ", "%, decreases by 1 every turn."]
   },
 
   "${modID}:StartSmallPower": {
@@ -107,8 +107,8 @@
     "DESCRIPTIONS": ["At the end of your turn, gain ", " #yBlock per #yVulnerable on you."]
   },
 
-  "${modID}:UnphasedPower": {
-    "NAME": "Unphased",
+  "${modID}:UnfazedPower": {
+    "NAME": "Unfazed",
     "DESCRIPTIONS": ["You no longer take extra damage from being #yVulnerable, decreases by 1 every turn."]
   },
 
@@ -134,7 +134,7 @@
 
   "${modID}:FangsBaredPower": {
     "NAME": "FangsBared",
-    "DESCRIPTIONS": ["#yReckless attacks deal ", " additional damage."]
+    "DESCRIPTIONS": ["Whenever you play a #yReckless card deal ", " damage to a random enemy."]
   },
 
   "${modID}:LoseCautionPower": {
@@ -145,5 +145,10 @@
   "${modID}:RetainEnergyPower": {
     "NAME": "Conserving",
     "DESCRIPTIONS": ["Gain unspent [E] next turn"]
+  },
+
+  "${modID}:UninterruptedCautionPower": {
+    "NAME": "Uninterrupted",
+    "DESCRIPTIONS": ["#yCaution is not removed at the start of your turn."]
   }
 }

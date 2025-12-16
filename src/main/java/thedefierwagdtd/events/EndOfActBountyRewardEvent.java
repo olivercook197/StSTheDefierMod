@@ -287,4 +287,5 @@ public class EndOfActBountyRewardEvent extends AbstractImageEvent {
     }
 
     public EndOfActBounty bountyRelic;
+
 }

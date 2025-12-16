@@ -10,14 +10,14 @@ import com.megacrit.cardcrawl.powers.VulnerablePower;
 
 import static thedefierwagdtd.TheDefierModWAGDTD.makeID;
 
-public class UnphasedPower extends BasePower {
-    public static final String POWER_ID = makeID(UnphasedPower.class.getSimpleName());
+public class UnfazedPower extends BasePower {
+    public static final String POWER_ID = makeID(UnfazedPower.class.getSimpleName());
 
     private static final PowerType TYPE = PowerType.BUFF;
 
     private static final boolean TURN_BASED = true;
 
-    public UnphasedPower(AbstractCreature owner, int amount) {
+    public UnfazedPower(AbstractCreature owner, int amount) {
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);
     }
 

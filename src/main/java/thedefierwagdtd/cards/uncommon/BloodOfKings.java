@@ -10,9 +10,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import thedefierwagdtd.cards.BaseCard;
 import thedefierwagdtd.character.TheDefier;
-import thedefierwagdtd.powers.AgilityPower;
 import thedefierwagdtd.powers.BloodOfKingsPower;
-import thedefierwagdtd.powers.UnphasedPower;
 import thedefierwagdtd.util.CardStats;
 
 public class BloodOfKings extends BaseCard {
@@ -24,7 +22,7 @@ public class BloodOfKings extends BaseCard {
             AbstractCard.CardTarget.SELF,
             1
     );
-    private static final int MAGIC_NUMBER = 1;
+    private static final int MAGIC_NUMBER = 2;
 
     public BloodOfKings() {
         super(ID, info);

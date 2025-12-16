@@ -37,11 +37,11 @@ public class NeverDown extends BaseCard{
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (this.upgraded){
             addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p,
-                    (AbstractPower)new StrengthPower((AbstractCreature)p, 5), 5));
+                    (AbstractPower)new StrengthPower((AbstractCreature)p, 6), 6));
             addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p,
-                    (AbstractPower)new LoseStrengthPower((AbstractCreature)p, 5), 5));
+                    (AbstractPower)new LoseStrengthPower((AbstractCreature)p, 6), 6));
             addToBot(new ApplyPowerAction((AbstractCreature) AbstractDungeon.player, (AbstractCreature) AbstractDungeon.player,
-                    (AbstractPower) new LionsHeartBuff((AbstractCreature) AbstractDungeon.player, 4), 4));
+                    (AbstractPower) new LionsHeartBuff((AbstractCreature) AbstractDungeon.player, 6), 6));
             addToBot((AbstractGameAction) new DrawCardAction((AbstractCreature) p, 3));
         }
 
@@ -51,7 +51,7 @@ public class NeverDown extends BaseCard{
             addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p,
                     (AbstractPower)new LoseStrengthPower((AbstractCreature)p, 4), 4));
             addToBot(new ApplyPowerAction((AbstractCreature) AbstractDungeon.player, (AbstractCreature) AbstractDungeon.player,
-                    (AbstractPower) new LionsHeartBuff((AbstractCreature) AbstractDungeon.player, 3), 3));
+                    (AbstractPower) new LionsHeartBuff((AbstractCreature) AbstractDungeon.player, 4), 4));
             addToBot((AbstractGameAction) new DrawCardAction((AbstractCreature) p, 2));
         }
 

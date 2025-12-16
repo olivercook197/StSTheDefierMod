@@ -33,8 +33,8 @@ public class ChooseCardToRetainAndDiscountAction extends AbstractGameAction {
             AbstractDungeon.handCardSelectScreen.open(
                     message,
                     selectable,
-                    true,  //AnyNumber
-                    true              //CanPickZero
+                    true,
+                    true
             );
 
             tickDuration();
@@ -49,7 +49,6 @@ public class ChooseCardToRetainAndDiscountAction extends AbstractGameAction {
                 }
                 c.superFlash();
 
-                // FIX: put the card back into the hand
                 AbstractDungeon.player.hand.addToTop(c);
             }
             AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;

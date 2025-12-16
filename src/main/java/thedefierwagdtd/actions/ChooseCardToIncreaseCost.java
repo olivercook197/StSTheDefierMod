@@ -24,12 +24,10 @@ public class ChooseCardToIncreaseCost extends AbstractGameAction {
     @Override
     public void update() {
 
-        // --- OPEN SELECTION ---
         if (this.duration == Settings.ACTION_DUR_FAST) {
 
             CardGroup hand = AbstractDungeon.player.hand;
 
-            // Remove ineligible cards BEFORE opening selection screen
             for (AbstractCard c : new ArrayList<>(hand.group)) {
                 if (!isEligible(c)) {
                     removedCards.add(c);
@@ -37,7 +35,6 @@ public class ChooseCardToIncreaseCost extends AbstractGameAction {
                 }
             }
 
-            // If nothing selectable → restore and exit
             if (hand.isEmpty() || amount <= 0) {
                 restoreExcludedCards();
                 isDone = true;
@@ -60,7 +57,6 @@ public class ChooseCardToIncreaseCost extends AbstractGameAction {
             return;
         }
 
-        // --- PROCESS SELECTION ---
         if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
 
             for (AbstractCard c : AbstractDungeon.handCardSelectScreen.selectedCards.group) {
@@ -78,7 +74,6 @@ public class ChooseCardToIncreaseCost extends AbstractGameAction {
             AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
             AbstractDungeon.handCardSelectScreen.selectedCards.group.clear();
 
-            // Restore removed cards
             restoreExcludedCards();
 
             isDone = true;
@@ -88,13 +83,8 @@ public class ChooseCardToIncreaseCost extends AbstractGameAction {
     }
 
     private boolean isEligible(AbstractCard c) {
-        // Unplayable cards (Curse/Status or cost == -2)
         if (c.cost == -2) return false;
-
-        // Optional: forbid Curses or Status
-        if (c.type == AbstractCard.CardType.CURSE) return false;
-        if (c.type == AbstractCard.CardType.STATUS) return false;
-
+        if (c.cost == -1) return false;
         return true;
     }
 

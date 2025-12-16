@@ -3,6 +3,7 @@ package thedefierwagdtd.cards.rare;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -59,5 +60,8 @@ public class AncientTeachings extends BaseCard {
                     }
                 }
         ));
+        if (upgraded) {
+            addToBot(new DrawCardAction(1));
+        }
     }
 }

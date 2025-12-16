@@ -31,12 +31,11 @@ public class SmellTheirFear extends BaseCard {
             0
     );
     private static final int MAGIC_NUMBER = 3;
-    private static final int UPG_MAGIC_NUMBER = 1;
 
 
     public SmellTheirFear() {
         super(ID, info);
-        setMagic(MAGIC_NUMBER, UPG_MAGIC_NUMBER);
+        setMagic(MAGIC_NUMBER);
     }
 
     @Override

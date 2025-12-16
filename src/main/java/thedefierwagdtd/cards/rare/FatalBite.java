@@ -5,11 +5,14 @@ import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.HealAction;
+import com.megacrit.cardcrawl.actions.unique.IncreaseMaxHpAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.*;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
@@ -58,9 +61,11 @@ public class FatalBite extends BaseCard {
                 this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
 
         if (!upgraded) {
+            AbstractDungeon.player.increaseMaxHp(5, false);
             addToBot(new ChooseCardToDecreaseCostAndGainDamage(this.magicNumber, 1));
         }
         else {
+            AbstractDungeon.player.increaseMaxHp(7, false);
             addToBot(new ChooseCardToDecreaseCostAndGainDamage(this.magicNumber, 2));
         }
     }

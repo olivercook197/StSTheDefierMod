@@ -1,13 +1,9 @@
 package thedefierwagdtd.powers;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import thedefierwagdtd.CustomTags.CustomTag;
 
 import static thedefierwagdtd.TheDefierModWAGDTD.makeID;
 
@@ -19,6 +15,14 @@ public class CautionPower extends BasePower {
 
     public CautionPower(AbstractCreature owner, int amount) {
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);
+    }
+
+    @Override
+    public float atDamageReceive(float damage, DamageInfo.DamageType type) {
+        if (damage <= 0) return damage;
+
+        float reductionMultiplier = 1.0f - (this.amount / 100.0f);
+        return damage * Math.max(0f, reductionMultiplier);
     }
 
     @Override
@@ -34,6 +38,10 @@ public class CautionPower extends BasePower {
 
     @Override
     public void atStartOfTurnPostDraw() {
+        if (owner.hasPower(UninterruptedCautionPower.POWER_ID)) {
+            return;
+        }
+
         flash();
         this.amount--;
 
@@ -46,7 +54,7 @@ public class CautionPower extends BasePower {
 
     @Override
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
+        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1] + this.amount + DESCRIPTIONS[2];
     }
 
     @Override

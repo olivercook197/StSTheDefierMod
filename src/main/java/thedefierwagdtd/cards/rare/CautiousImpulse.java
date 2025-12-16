@@ -11,6 +11,7 @@ import thedefierwagdtd.CustomTags.CustomTag;
 import thedefierwagdtd.cards.BaseCard;
 import thedefierwagdtd.character.TheDefier;
 import thedefierwagdtd.powers.CautionPower;
+import thedefierwagdtd.powers.UninterruptedCautionPower;
 import thedefierwagdtd.util.CardStats;
 
 public class CautiousImpulse extends BaseCard {
@@ -24,7 +25,7 @@ public class CautiousImpulse extends BaseCard {
             1
     );
 
-    private static final int MAGIC_NUMBER = 7;
+    private static final int MAGIC_NUMBER = 6;
 
     public CautiousImpulse() {
         super(ID, info);
@@ -37,6 +38,8 @@ public class CautiousImpulse extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToTop((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p,
                 (AbstractPower)new CautionPower((AbstractCreature)p, this.magicNumber), this.magicNumber));
+        addToTop((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p,
+                (AbstractPower)new UninterruptedCautionPower((AbstractCreature)p, 0), 0));
     }
 
 

@@ -7,8 +7,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
-import thedefierwagdtd.cardmodifiers.GainFourVulnerableOneUnphasedModifier;
-import thedefierwagdtd.cardmodifiers.TwoVulnerableToEveryoneModifier;
+import thedefierwagdtd.cardmodifiers.GainFourVulnerableOneUnfazedModifier;
 import thedefierwagdtd.character.TheDefier;
 
 import static thedefierwagdtd.TheDefierModWAGDTD.makeID;
@@ -54,7 +53,7 @@ public class CyanBook extends BaseRelic {
 
             AbstractCard chosen = AbstractDungeon.gridSelectScreen.selectedCards.get(0);
 
-            CardModifierManager.addModifier(chosen, new GainFourVulnerableOneUnphasedModifier());
+            CardModifierManager.addModifier(chosen, new GainFourVulnerableOneUnfazedModifier());
 
             flash();
             AbstractDungeon.effectList.add(new ShowCardBrieflyEffect(chosen.makeStatEquivalentCopy()));

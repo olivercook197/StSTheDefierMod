@@ -2,6 +2,7 @@ package thedefierwagdtd.cards.uncommon;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.unique.IncreaseMaxHpAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -23,20 +24,12 @@ public class Illusive extends BaseCard {
             AbstractCard.CardTarget.SELF,
             1
     );
+    private static final int MAGIC_NUMBER = 6;
 
     public Illusive() {
         super(ID, info);
+        setMagic(MAGIC_NUMBER);
         tags.add(CustomTag.RECKLESS);
-    }
-
-    @Override
-    public void upgrade() {
-        if (!upgraded) {
-            upgradeName();
-            tags.remove(CustomTag.RECKLESS);
-            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-            initializeDescription();
-        }
     }
 
     @Override
@@ -44,5 +37,9 @@ public class Illusive extends BaseCard {
         addToBot(new ChooseCardToRemoveFromDeckAction(1));
         AbstractDungeon.player.masterDeck.removeCard(this.cardID);
         this.purgeOnUse = true;
+
+        if (upgraded) {
+            AbstractDungeon.player.increaseMaxHp(this.magicNumber, false);
+        }
     }
 }

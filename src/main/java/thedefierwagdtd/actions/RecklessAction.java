@@ -30,19 +30,19 @@ public class RecklessAction extends AbstractGameAction {
     public void update() {
         int damage = (int) Math.floor(player.currentHealth * 0.1);
 
-        // Apply Caution mitigation if present
+        // Apply Caution mitigation
         AbstractPower caution = player.getPower(CautionPower.POWER_ID);
         if (caution instanceof CautionPower) {
             damage = Math.max(((CautionPower) caution).modifyRecklessDamage(damage), 0);
         }
 
-        // 🔑 Special case: Brush With Death ignores damage if you have a curse in hand
+        //Brush With Death ignores damage
         if (sourceCard != null && sourceCard.cardID.equals(BrushWithDeath.ID)) {
             boolean hasCurse = AbstractDungeon.player.hand.group.stream()
                     .anyMatch(c -> c.type == AbstractCard.CardType.CURSE);
 
             if (hasCurse) {
-                this.isDone = true; // skip damage entirely
+                this.isDone = true;
                 return;
             }
         }

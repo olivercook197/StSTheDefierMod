@@ -1,11 +1,18 @@
 package thedefierwagdtd.cards.uncommon;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.ReduceCostAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.vfx.combat.GainPowerEffect;
 import thedefierwagdtd.actions.DecreaseCardsCost;
 import thedefierwagdtd.cards.BaseCard;
 import thedefierwagdtd.character.TheDefier;
+import thedefierwagdtd.powers.CautionPower;
 import thedefierwagdtd.util.CardStats;
 
 public class Jolt extends BaseCard {
@@ -25,15 +32,12 @@ public class Jolt extends BaseCard {
         setMagic(MAGIC_NUMBER);
     }
 
-    public void upgrade() {
-        if (!this.upgraded) {
-            upgradeName();
-            upgradeBaseCost(0);
-        }
-    }
-
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToTop(new ApplyPowerAction(p, p, new CautionPower(p, 2), 2));
         addToBot(new DecreaseCardsCost(p, this.magicNumber, true));
+        if (upgraded) {
+            addToBot(new GainEnergyAction(1));
+        }
     }
 }

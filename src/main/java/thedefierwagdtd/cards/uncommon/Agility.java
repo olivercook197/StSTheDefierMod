@@ -11,8 +11,7 @@ import com.megacrit.cardcrawl.powers.VulnerablePower;
 import thedefierwagdtd.cards.BaseCard;
 import thedefierwagdtd.character.TheDefier;
 import thedefierwagdtd.powers.AgilityPower;
-import thedefierwagdtd.powers.BalancedCalmPower;
-import thedefierwagdtd.powers.UnphasedPower;
+import thedefierwagdtd.powers.UnfazedPower;
 import thedefierwagdtd.util.CardStats;
 
 public class Agility extends BaseCard {
@@ -39,9 +38,9 @@ public class Agility extends BaseCard {
                 this.magicNumber));
         if (upgraded) {
             addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p,
-                    (AbstractPower)new UnphasedPower((AbstractCreature)p, 1), 1));
-            addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p,
                     (AbstractPower)new VulnerablePower((AbstractCreature)p, 1, false), 1));
+            addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p,
+                    (AbstractPower)new UnfazedPower((AbstractCreature)p, 1), 1));
         }
     }
 }

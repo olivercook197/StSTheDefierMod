@@ -29,7 +29,7 @@ public class FrolicBoostAction extends AbstractGameAction {
         }
 
         if (changed) {
-            card.applyPowers();        // update UI
+            card.applyPowers();
             card.initializeDescription();
             card.superFlash();
         }

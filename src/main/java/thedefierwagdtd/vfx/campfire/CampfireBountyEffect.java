@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.neow.NeowEvent;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.RestRoom;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
+import thedefierwagdtd.events.EndOfActBountyRewardEvent;
 
 import java.util.ArrayList;
 
@@ -32,7 +33,7 @@ public class CampfireBountyEffect extends AbstractGameEffect {
     }
 
     public static String generateEventName() {
-        return "thedefierwagdtd:EndOfActBountyRewardEvent";
+        return EndOfActBountyRewardEvent.ID;
     }
 
     public void update() {

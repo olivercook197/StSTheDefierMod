@@ -24,7 +24,7 @@ public class Burned extends BaseCard {
             0
     );
 
-    private static final int MAGIC = 2;
+    private static final int MAGIC = 3;
 
     public Burned() {
         super(ID, info);

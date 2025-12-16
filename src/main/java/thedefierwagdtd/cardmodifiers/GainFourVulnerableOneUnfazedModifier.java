@@ -7,12 +7,11 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import thedefierwagdtd.TheDefierModWAGDTD;
-import thedefierwagdtd.powers.UnphasedPower;
+import thedefierwagdtd.powers.UnfazedPower;
 
-public class GainFourVulnerableOneUnphasedModifier extends AbstractCardModifier {
+public class GainFourVulnerableOneUnfazedModifier extends AbstractCardModifier {
     public static final String ID = "thedefierwagdtd:GainFourVulnerableOneUnphasedModifier";
 
     @Override
@@ -28,11 +27,11 @@ public class GainFourVulnerableOneUnphasedModifier extends AbstractCardModifier 
         );
         AbstractDungeon.actionManager.addToBottom(
                 new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
-                        new UnphasedPower(AbstractDungeon.player, 1), 1)
+                        new UnfazedPower(AbstractDungeon.player, 1), 1)
         );
     }
 
     public AbstractCardModifier makeCopy() {
-        return new GainFourVulnerableOneUnphasedModifier();
+        return new GainFourVulnerableOneUnfazedModifier();
     }
 }
