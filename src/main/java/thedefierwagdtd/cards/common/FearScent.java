@@ -2,10 +2,8 @@ package thedefierwagdtd.cards.common;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -13,7 +11,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
-import thedefierwagdtd.CustomTags.CustomTag;
 import thedefierwagdtd.cards.BaseCard;
 import thedefierwagdtd.character.TheDefier;
 import thedefierwagdtd.powers.CautionPower;
@@ -21,8 +18,8 @@ import thedefierwagdtd.util.CardStats;
 
 import static thedefierwagdtd.CustomTags.CustomTag.RECKLESS;
 
-public class SmellTheirFear extends BaseCard {
-    public static final String ID = makeID(SmellTheirFear.class.getSimpleName());
+public class FearScent extends BaseCard {
+    public static final String ID = makeID(FearScent.class.getSimpleName());
     private static final CardStats info = new CardStats(
             TheDefier.Meta.CARD_COLOR,
             CardType.SKILL,
@@ -30,12 +27,13 @@ public class SmellTheirFear extends BaseCard {
             CardTarget.SELF,
             0
     );
-    private static final int MAGIC_NUMBER = 3;
+    private static final int MAGIC_NUMBER = 4;
+    private static final int UPG_MAGIC_NUMBER = 2;
 
 
-    public SmellTheirFear() {
+    public FearScent() {
         super(ID, info);
-        setMagic(MAGIC_NUMBER);
+        setMagic(MAGIC_NUMBER, UPG_MAGIC_NUMBER);
     }
 
     @Override
@@ -46,18 +44,23 @@ public class SmellTheirFear extends BaseCard {
                 recklessCards += 1;
             }
         }
-        for (int i = 0; i < recklessCards; i++) {
+
+        if (recklessCards > 0) {
             addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p,
-                    (AbstractPower)new StrengthPower((AbstractCreature)p, this.magicNumber), this.magicNumber));
-            addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p,
-                    (AbstractPower)new LoseStrengthPower((AbstractCreature)p, this.magicNumber), this.magicNumber));
+                    (AbstractPower)new CautionPower((AbstractCreature)p, this.magicNumber), this.magicNumber));
         }
 
-        addToTop((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p,
-                (AbstractPower)new CautionPower((AbstractCreature)p, 2), 2));
+        addToTop((AbstractGameAction)new DrawCardAction((AbstractCreature)p, 1));
+    }
 
-        if (upgraded) {
-            addToTop((AbstractGameAction)new DrawCardAction((AbstractCreature)p, 1));
+    @Override
+    public void triggerOnGlowCheck() {
+        AbstractPlayer p = AbstractDungeon.player;
+
+        if (p != null && p.hand.group.stream().anyMatch(c -> c.hasTag(RECKLESS))) {
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+        } else {
+            this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
         }
     }
 }

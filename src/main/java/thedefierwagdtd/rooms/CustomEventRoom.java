@@ -9,13 +9,13 @@ public class CustomEventRoom extends EventRoom {
     AbstractEvent anEvent;
 
     public CustomEventRoom(AbstractEvent event) {
-        super();                    // MUST call superclass
+        super();
         this.anEvent = event;
     }
 
     public void onPlayerEntry() {
         AbstractDungeon.overlayMenu.proceedButton.hide();
         this.event = this.anEvent;
-        this.event.onEnterRoom();   // Crashed because event was null
+        this.event.onEnterRoom();
     }
 }

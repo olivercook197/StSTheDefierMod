@@ -88,7 +88,7 @@
 
   "${modID}:BattleFormPower": {
     "NAME": "Battle Form",
-    "DESCRIPTIONS": ["At the start of your turn, gain ",  " Temporary Strength per 8 #yLion's #yHeart . (", ")"]
+    "DESCRIPTIONS": ["At the start of your turn, gain ",  " Temporary Strength per 8 #yLion's #yHeart. (", ")"]
   },
 
   "${modID}:NapPower": {

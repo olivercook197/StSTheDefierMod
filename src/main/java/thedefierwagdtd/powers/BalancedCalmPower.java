@@ -22,7 +22,7 @@ public class BalancedCalmPower extends BasePower {
     }
 
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        if (card.type == AbstractCard.CardType.SKILL) {
+        if (card.type == AbstractCard.CardType.SKILL || card.type == AbstractCard.CardType.CURSE) {
             flash();
             addToBot(new ApplyPowerAction((AbstractCreature) AbstractDungeon.player, (AbstractCreature) AbstractDungeon.player,
                     (AbstractPower) new LionsHeartBuff((AbstractCreature) AbstractDungeon.player, this.amount), this.amount));

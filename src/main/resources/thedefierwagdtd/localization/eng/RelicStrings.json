@@ -24,7 +24,7 @@
     "NAME": "Ancestral Call",
     "FLAVOR": "In the heat of battle, the rush of blood in your ears sounds like music.",
     "DESCRIPTIONS": [
-      "Whenever you gain #yStrength, gain an equal amount of #y${modID}:Lion's_Heart."
+      "Whenever you gain #yStrength, gain an equal amount of #y${modID}:Lion's_Heart (Max 50 per combat)."
     ]
   },
   "${modID}:TotemOfLife": {

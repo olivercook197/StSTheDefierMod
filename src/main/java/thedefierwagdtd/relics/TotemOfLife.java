@@ -92,7 +92,7 @@ public class TotemOfLife extends BaseRelic {
                 AbstractDungeon.player,
                 AbstractDungeon.player,
                 new IntangiblePlayerPower(AbstractDungeon.player, 2),
-                2
+                1
         ));
 
         this.flash();

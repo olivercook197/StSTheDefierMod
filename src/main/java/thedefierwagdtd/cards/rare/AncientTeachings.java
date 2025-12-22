@@ -28,8 +28,8 @@ public class AncientTeachings extends BaseCard {
             0
     );
 
-    private static final int TEMP_STR_PER_COST = 5;
-    private static final int UPG_TEMP_STR_PER_COST = 3;
+    private static final int TEMP_STR_PER_COST = 6;
+    private static final int UPG_TEMP_STR_PER_COST = 2;
 
 
     public AncientTeachings() {

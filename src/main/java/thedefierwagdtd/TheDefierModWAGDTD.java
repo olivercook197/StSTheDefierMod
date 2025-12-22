@@ -458,7 +458,7 @@ public class TheDefierModWAGDTD implements
 
             for (AbstractPower p : AbstractDungeon.player.powers) {
                 if (p instanceof OpportunityPower) {
-                    ((OpportunityPower) p).trigger(applied);
+                    ((OpportunityPower) p).trigger(applied, applied.owner);
                 }
                 if (p instanceof RainyDayPower) {
                     ((RainyDayPower) p).trigger(applied);

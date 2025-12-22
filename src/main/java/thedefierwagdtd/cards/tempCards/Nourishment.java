@@ -1,22 +1,14 @@
 package thedefierwagdtd.cards.tempCards;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.GainStrengthPower;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
 import thedefierwagdtd.cards.BaseCard;
-import thedefierwagdtd.cards.uncommon.CoughUpFurball;
-import thedefierwagdtd.character.TheDefier;
+import thedefierwagdtd.patches.NourishmentCounterField;
 import thedefierwagdtd.util.CardStats;
-
-import java.util.ArrayList;
 
 public class Nourishment extends BaseCard {
     public static final String ID = makeID(Nourishment.class.getSimpleName());
@@ -39,21 +31,43 @@ public class Nourishment extends BaseCard {
         this.tags.add(AbstractCard.CardTags.HEALING);
     }
 
+    @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.player.increaseMaxHp(this.magicNumber, false);
+        int count = NourishmentCounterField.nourishmentCount.get(p);
+        if (NourishmentCounterField.nourishmentCount.get(p) != 0) {
+            NourishmentCounterField.nourishmentCount.set(AbstractDungeon.player, 0);
+        }
+        NourishmentCounterField.nourishmentCount.set(p, count + 1);
+
+        p.increaseMaxHp(this.magicNumber, false);
 
         if (AbstractDungeon.cardRandomRng.random(99) < 20) {
-            AbstractMonster randomEnemy = AbstractDungeon.getMonsters()
-                    .getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
+            AbstractMonster randomEnemy =
+                    AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
 
-            if (randomEnemy != null) {
+            if (randomEnemy != null && !randomEnemy.isDeadOrEscaped()) {
                 addToBot(new ApplyPowerAction(
-                        randomEnemy,
-                        p,
-                        new GainStrengthPower(randomEnemy, 2),
-                        2
+                        randomEnemy, p,
+                        new GainStrengthPower(randomEnemy, 2), 2
                 ));
             }
         }
     }
+
+
+    @Override
+    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+        if (!super.canUse(p, m)) {
+            return false;
+        }
+
+        int count = NourishmentCounterField.nourishmentCount.get(p);
+        if (count >= 10) {
+            this.cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
+            return false;
+        }
+
+        return true;
+    }
+
 }

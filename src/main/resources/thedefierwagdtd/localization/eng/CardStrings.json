@@ -28,7 +28,7 @@
 
   "${modID}:BalancedCalm": {
     "NAME": "Balanced Calm",
-    "DESCRIPTION": "Whenever you play a Skill, gain !M! ${modID}:Lion's_Heart."
+    "DESCRIPTION": "Whenever you play a Skill or Curse, gain !M! ${modID}:Lion's_Heart."
   },
 
   "${modID}:Catnip": {
@@ -122,8 +122,8 @@
 
   "${modID}:SmoulderingSneer": {
     "NAME": "Smouldering Sneer",
-    "DESCRIPTION": "Next turn, gain !M! Temporary Strength and 1 Vulnerable.",
-    "UPGRADE_DESCRIPTION": "Next turn, gain !M! Temporary Strength and 1 Vulnerable. NL Gain 1 Dexterity"
+    "DESCRIPTION": "Next turn, gain !M! Temporary Strength and 2 Vulnerable.",
+    "UPGRADE_DESCRIPTION": "Next turn, gain !M! Temporary Strength and 2 Vulnerable. NL Gain 1 Dexterity"
   },
 
   "${modID}:FacingDown": {
@@ -199,7 +199,7 @@
 
   "${modID}:Burned": {
     "NAME": "Burned",
-    "DESCRIPTION": "Gain 1 Weak. NL Give 2 attack cards in hand +3 damage. NL ${modID}:Reckless."
+    "DESCRIPTION": "Gain 1 Weak. NL Give 2 random attack cards in hand +3 damage this combat. NL ${modID}:Reckless."
   },
 
   "${modID}:Plummeted": {
@@ -387,10 +387,9 @@
     ]
   },
 
-  "${modID}:SmellTheirFear": {
-    "NAME": "Smell Their Fear",
-    "DESCRIPTION": "Gain !M! Temporary Strength for each ${modID}:Reckless card in hand. NL Gain 2 ${modID}:Caution.",
-    "UPGRADE_DESCRIPTION": "Gain !M! Temporary Strength for each ${modID}:Reckless card in hand. NL Gain 2 ${modID}:Caution. NL Draw 1 card."
+  "${modID}:FearScent": {
+    "NAME": "Fear Scent",
+    "DESCRIPTION": "If you have a ${modID}:Reckless card in hand, gain !M! ${modID}:Caution. NL Draw 1 card."
   },
 
   "${modID}:Unfazed": {
@@ -447,7 +446,10 @@
 
   "${modID}:Nourishment": {
     "NAME": "Nourishment",
-    "DESCRIPTION": "Ethereal. NL Raise your Max HP by !M!. NL 20% chance for a random enemy to gain 2 Strength next turn. NL Exhaust."
+    "DESCRIPTION": "Ethereal. NL Raise your Max HP by !M!. NL 20% chance for a random enemy to gain 2 Strength next turn. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      "I am full! I've already eaten 10 Nourishments!"
+    ]
   },
 
   "${modID}:DinDins": {
