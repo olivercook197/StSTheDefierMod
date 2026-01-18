@@ -8,5 +8,30 @@
       " into a description.",
       " Exactly how depends on the potion, and you can set it up however you want."
     ]
+  },
+
+  "${modID}:UnfazedVulnerablePotion" : {
+    "NAME": "Unfazed Potion",
+    "DESCRIPTIONS": [
+      "Gain #b",
+      " #yUnfazed and #b",
+      " #yVulnerable."
+    ]
+  },
+
+  "${modID}:LionsHeartPotion" : {
+    "NAME": "Lion's Heart Potion",
+    "DESCRIPTIONS": [
+      "Gain #b",
+      " #yLion's #yHeart."
+    ]
+  },
+
+  "${modID}:CautionPotion" : {
+    "NAME": "Caution Potion",
+    "DESCRIPTIONS": [
+      "Gain #b",
+      " #yCaution."
+    ]
   }
 }

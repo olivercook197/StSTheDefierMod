@@ -1,5 +1,6 @@
 package thedefierwagdtd.relics;
 
+import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -9,6 +10,7 @@ import com.megacrit.cardcrawl.localization.LocalizedStrings;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.vfx.UpgradeShineEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
+import thedefierwagdtd.cardmodifiers.GainEnergyModifier;
 import thedefierwagdtd.character.TheDefier;
 
 import java.util.ArrayList;
@@ -43,7 +45,7 @@ public class BlueBook extends BaseRelic{
         AbstractDungeon.gridSelectScreen.open(
                 group,
                 1,
-                "Choose a card to permanently reduce its cost by 1",
+                "Choose a card: when you play it, gain 1 Energy.",
                 false, false, false, false
         );
     }
@@ -56,20 +58,12 @@ public class BlueBook extends BaseRelic{
 
             AbstractCard chosen = AbstractDungeon.gridSelectScreen.selectedCards.get(0);
 
-            if (chosen.cost > 0) {
-                chosen.cost--;
-                chosen.costForTurn = chosen.cost;
-                chosen.isCostModified = true;
-            }
+            CardModifierManager.addModifier(chosen, new GainEnergyModifier());
 
             flash();
+            AbstractDungeon.effectList.add(new ShowCardBrieflyEffect(chosen.makeStatEquivalentCopy()));
             CardCrawlGame.sound.play("UPGRADE_CARD");
 
-            AbstractDungeon.effectList.add(
-                    new ShowCardBrieflyEffect(chosen.makeStatEquivalentCopy())
-            );
-
-            // Clear selection
             AbstractDungeon.gridSelectScreen.selectedCards.clear();
             waitingForSelection = false;
         }

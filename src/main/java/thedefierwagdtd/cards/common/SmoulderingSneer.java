@@ -6,12 +6,15 @@ import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.DexterityPower;
+import com.megacrit.cardcrawl.powers.LoseDexterityPower;
 import thedefierwagdtd.CustomTags.CustomTag;
 import thedefierwagdtd.cards.BaseCard;
 import thedefierwagdtd.character.TheDefier;
+import thedefierwagdtd.powers.SmoulderingPower;
 import thedefierwagdtd.powers.UnstablePower;
 import thedefierwagdtd.powers.VentingPower;
 import thedefierwagdtd.util.CardStats;
@@ -41,8 +44,8 @@ public class SmoulderingSneer extends BaseCard {
         addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p,
                 (AbstractPower)new UnstablePower((AbstractCreature)p, 2), 2));
         if (upgraded) {
-            addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p,
-                    (AbstractPower)new DexterityPower((AbstractCreature)p, 1), 1));
+            addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
+                    new SmoulderingPower(AbstractDungeon.player, 1), 1));
         }
     }
 }

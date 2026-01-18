@@ -66,5 +66,28 @@
       "Vendor not here today.",
       "Sold out"
     ]
+  },
+
+  "${modID}:BookEvent": {
+    "NAME": "Tactics Bookstore",
+    "DESCRIPTIONS": [
+      "Hidden away in a dusty alley, you come across an interesting bookstore. It looks as though many fights have been started and ended here, with an area in the middle of the room looking like a training floor. The books on sale seem to hold more than they first appear.",
+      "Something seems wrong, and you slip out.",
+      "As soon as you make the purchase, a strange feeling comes over you, and you go into a trance. When you wake from it, your body is bruised, the room is in a mess, but you feel strangely stronger."
+    ],
+    "OPTIONS": [
+      "[Buy] #y25 #yGold: Choose a card in deck, it provides [E] when played.",
+      "[Buy] #y25 #yGold: Choose a card in deck, gain 4 #yVulnerable and 1 #yUnfazed when played.",
+      "[Buy] #y25 #yGold: Choose a card in deck, apply 2 #yVulnerable to EVERYONE when played.",
+      "[Buy] #y25 #yGold: Choose a card in deck, gain 3 #yCaution when played.",
+      "[Buy] #y25 #yGold: Choose a card in deck, gain 4 #yLion's #yHeart when played.",
+      "[Buy] #y50 #yGold: Choose a card in deck, it provides [E] when played.",
+      "[Buy] #y50 #yGold: Choose a card in deck, gain 4 #yVulnerable and 1 #yUnfazed when played.",
+      "[Buy] #y50 #yGold: Choose a card in deck, apply 2 #yVulnerable to EVERYONE when played.",
+      "[Buy] #y50 #yGold: Choose a card in deck, gain 3 #yCaution when played.",
+      "[Buy] #y50 #yGold: Choose a card in deck, gain 4 #yLion's #yHeart when played.",
+      "[Leave]",
+      "Continue"
+    ]
   }
 }

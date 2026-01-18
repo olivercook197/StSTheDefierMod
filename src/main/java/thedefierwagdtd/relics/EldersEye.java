@@ -21,7 +21,7 @@ import static thedefierwagdtd.TheDefierModWAGDTD.makeID;
 public class EldersEye extends BaseRelic {
     private static final String NAME = "EldersEye";
     public static final String RELIC_ID = makeID(EldersEye.class.getSimpleName());
-    private static final RelicTier RARITY = RelicTier.COMMON;
+    private static final RelicTier RARITY = RelicTier.UNCOMMON;
     private static final LandingSound SOUND = LandingSound.CLINK;
 
     public EldersEye() {

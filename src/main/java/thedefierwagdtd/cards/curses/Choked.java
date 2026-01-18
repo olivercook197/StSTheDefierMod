@@ -53,4 +53,8 @@ public class Choked extends BaseCard {
             chosen.superFlash(Color.RED.cpy());
         }
     }
+
+    public boolean canSpawn() {
+        return false;
+    }
 }

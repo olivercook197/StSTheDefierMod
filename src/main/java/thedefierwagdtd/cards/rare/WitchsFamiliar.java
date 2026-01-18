@@ -26,8 +26,8 @@ public class WitchsFamiliar extends BaseCard {
             0
     );
 
-    private static final int MAGIC_NUMBER = 8;
-    private static final int UPG_MAGIC_NUMBER = 4;
+    private static final int MAGIC_NUMBER = 7;
+    private static final int UPG_MAGIC_NUMBER = 3;
 
     public WitchsFamiliar() {
         super(ID, info);
@@ -42,9 +42,6 @@ public class WitchsFamiliar extends BaseCard {
 
         for (AbstractMonster mo : (AbstractDungeon.getCurrRoom()).monsters.monsters)
             addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)mo, (AbstractCreature)p, (AbstractPower)new VulnerablePower((AbstractCreature)mo, this.magicNumber, false), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
-
-        addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p,
-                (AbstractPower)new UnfazedPower((AbstractCreature)p, 1), 1));
 
         if (upgraded) {
             addToBot(new ApplyPowerAction(p, p, new RegenPower(p, 3)));

@@ -37,4 +37,8 @@ public class Plummeted extends BaseCard {
         addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p,
                 (AbstractPower)new DexterityPower((AbstractCreature)p, this.magicNumber), this.magicNumber));
     }
+
+    public boolean canSpawn() {
+        return false;
+    }
 }

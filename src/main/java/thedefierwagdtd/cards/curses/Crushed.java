@@ -51,4 +51,7 @@ public class Crushed extends BaseCard {
         return true;
     }
 
+    public boolean canSpawn() {
+        return false;
+    }
 }

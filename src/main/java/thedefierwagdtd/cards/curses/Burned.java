@@ -64,4 +64,9 @@ public class Burned extends BaseCard {
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
         return true;
     }
+
+
+    public boolean canSpawn() {
+        return false;
+    }
 }

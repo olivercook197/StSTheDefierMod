@@ -30,24 +30,44 @@ public class WarmGlow extends BaseCard {
 
     private static final int MAGIC_NUMBER = 2;
 
-
     public WarmGlow() {
         super(ID, info);
         setMagic(MAGIC_NUMBER);
         this.exhaust = true;
     }
 
+    @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction((AbstractCreature) AbstractDungeon.player, (AbstractCreature) AbstractDungeon.player,
-                (AbstractPower) new RegenPower((AbstractCreature) AbstractDungeon.player, magicNumber), magicNumber));
-        addToBot(new ApplyPowerAction((AbstractCreature) AbstractDungeon.player, (AbstractCreature) AbstractDungeon.player,
-                (AbstractPower) new CautionPower((AbstractCreature) AbstractDungeon.player, 10), 10));
-        addToBot(new ApplyPowerAction((AbstractCreature) AbstractDungeon.player, (AbstractCreature) AbstractDungeon.player,
-                (AbstractPower) new LoseCautionPower((AbstractCreature) AbstractDungeon.player, 10), 10));
+
+        long timesPlayedThisCombat =
+                AbstractDungeon.actionManager.cardsPlayedThisCombat
+                        .stream()
+                        .filter(c -> c.cardID.equals(this.cardID))
+                        .count();
+
+        if (timesPlayedThisCombat == 1) {
+            addToBot(new ApplyPowerAction(
+                    p, p,
+                    new RegenPower(p, magicNumber),
+                    magicNumber
+            ));
+        }
+
+        addToBot(new ApplyPowerAction(
+                p, p,
+                new CautionPower(p, 10), 10
+        ));
+        addToBot(new ApplyPowerAction(
+                p, p,
+                new LoseCautionPower(p, 10), 10
+        ));
     }
 
+
+
+    @Override
     public void upgrade() {
-        if (!this.upgraded) {
+        if (!upgraded) {
             upgradeName();
             this.exhaust = false;
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
@@ -55,3 +75,5 @@ public class WarmGlow extends BaseCard {
         }
     }
 }
+
+

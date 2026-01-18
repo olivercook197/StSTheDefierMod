@@ -46,4 +46,8 @@ public class Trampled extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot((AbstractGameAction) new DrawCardAction((AbstractCreature)p, this.magicNumber));
     }
+
+    public boolean canSpawn() {
+        return false;
+    }
 }

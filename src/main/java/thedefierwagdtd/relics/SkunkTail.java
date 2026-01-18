@@ -1,5 +1,7 @@
 package thedefierwagdtd.relics;
 
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -22,63 +24,37 @@ import static thedefierwagdtd.TheDefierModWAGDTD.makeID;
 public class SkunkTail extends BaseRelic {
     private static final String NAME = "SkunkTail";
     public static final String RELIC_ID = makeID(SkunkTail.class.getSimpleName());
-    private static final RelicTier RARITY = RelicTier.SPECIAL;
+    private static final RelicTier RARITY = RelicTier.COMMON;
     private static final LandingSound SOUND = LandingSound.CLINK;
+
+    private static final int BLOCK = 2;
 
     public SkunkTail() {
         super(RELIC_ID, NAME, TheDefier.Meta.CARD_COLOR, RARITY, SOUND);
     }
 
     public String getUpdatedDescription() {
-        return this.DESCRIPTIONS[0];
+        return DESCRIPTIONS[0];
     }
 
-    public void onEquip() {
-        ArrayList<AbstractCard> curseCards = new ArrayList<>();
-        for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
-            if (c.type == AbstractCard.CardType.CURSE)
-                curseCards.add(c);
+    public void onUseCard(AbstractCard card, UseCardAction action) {
+        if (card.cost < 0 || card.costForTurn < 0) {
+            return;
         }
-        Collections.shuffle(curseCards, new Random(AbstractDungeon.miscRng.randomLong()));
-        AbstractCard curse1;
-        AbstractCard curse2;
-        AbstractCard curse3;
-        if (!curseCards.isEmpty())
-            if (curseCards.size() >= 3) {
-                curse1 = curseCards.get(0);
-                curse2 = curseCards.get(1);
-                curse3 = curseCards.get(2);
-                AbstractDungeon.player.masterDeck.removeCard(curse1);
-                AbstractDungeon.player.masterDeck.removeCard(curse2);
-                AbstractDungeon.player.masterDeck.removeCard(curse3);
 
-                CardCrawlGame.sound.play("CARD_EXHAUST");
-                AbstractDungeon.topLevelEffects.add(new PurgeCardEffect(curse1, Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F));
-                AbstractDungeon.topLevelEffects.add(new PurgeCardEffect(curse2, Settings.WIDTH, Settings.HEIGHT / 2.0F));
-                AbstractDungeon.topLevelEffects.add(new PurgeCardEffect(curse3, Settings.WIDTH * 2.0F, Settings.HEIGHT / 2.0F));
-            }
-            else if (curseCards.size() == 2) {
-                curse1 = curseCards.get(0);
-                curse2 = curseCards.get(1);
-
-                AbstractDungeon.player.masterDeck.removeCard(curse1);
-                AbstractDungeon.player.masterDeck.removeCard(curse2);
-
-                CardCrawlGame.sound.play("CARD_EXHAUST");
-                AbstractDungeon.topLevelEffects.add(new PurgeCardEffect(curse1, Settings.WIDTH / 1.5F, Settings.HEIGHT / 2.0F));
-                AbstractDungeon.topLevelEffects.add(new PurgeCardEffect(curse2, Settings.WIDTH * 1.5F, Settings.HEIGHT / 2.0F));
-            }
-            else if (curseCards.size() == 1) {
-                curse1 = curseCards.get(0);
-
-                AbstractDungeon.player.masterDeck.removeCard(curse1);
-
-                CardCrawlGame.sound.play("CARD_EXHAUST");
-                AbstractDungeon.topLevelEffects.add(new PurgeCardEffect(curse1, Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F));
-            }
+        if (card.costForTurn != card.cost || card.isCostModifiedForTurn) {
+            flash();
+            addToBot(new GainBlockAction(
+                    AbstractDungeon.player,
+                    AbstractDungeon.player,
+                    BLOCK
+            ));
+        }
     }
 
+    @Override
     public AbstractRelic makeCopy() {
         return new SkunkTail();
     }
+
 }

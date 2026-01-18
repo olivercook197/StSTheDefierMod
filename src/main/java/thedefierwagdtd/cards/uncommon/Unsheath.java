@@ -24,13 +24,14 @@ public class Unsheath extends BaseCard {
             1
     );
 
+    private static final int BLOCK = 0;
     private static final int BLOCK_UPG = 5;
     private static final int MAGIC_NUMBER = 5;
 
 
     public Unsheath() {
         super(ID, info);
-        setBlock(BLOCK_UPG);
+        setBlock(BLOCK, BLOCK_UPG);
         setMagic(MAGIC_NUMBER);
         tags.add(CustomTag.RECKLESS);
     }

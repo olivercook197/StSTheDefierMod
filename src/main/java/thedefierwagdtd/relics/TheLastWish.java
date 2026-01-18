@@ -54,7 +54,7 @@ public class TheLastWish extends BaseRelic {
         if (this.counter >= DAMAGE_THRESHOLD) {
             triggerEffect();
         } else if (this.counter == DAMAGE_THRESHOLD - 1) {
-            beginLongPulse(); // starts pulsing when close
+            beginLongPulse();
         }
     }
 

@@ -76,4 +76,8 @@ public class Exploded extends BaseCard implements OnObtainCard {
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
         return true;
     }
+
+    public boolean canSpawn() {
+        return false;
+    }
 }

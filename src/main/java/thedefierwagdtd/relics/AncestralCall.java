@@ -13,6 +13,7 @@ import thedefierwagdtd.powers.LionsHeartBuff;
 import static thedefierwagdtd.TheDefierModWAGDTD.makeID;
 
 public class AncestralCall extends BaseRelic implements OnApplyPowerRelic {
+    private static final String NAME = "AncestralCall";
     public static final String ID = makeID(AncestralCall.class.getSimpleName());
     private static final RelicTier TIER = RelicTier.RARE;
     private static final LandingSound SOUND = LandingSound.MAGICAL;
@@ -20,7 +21,7 @@ public class AncestralCall extends BaseRelic implements OnApplyPowerRelic {
     private static final int MAX_PER_COMBAT = 50;
 
     public AncestralCall() {
-        super(ID, TIER, SOUND);
+        super(ID, NAME, TheDefier.Meta.CARD_COLOR, TIER, SOUND);
         this.counter = 0;
     }
 

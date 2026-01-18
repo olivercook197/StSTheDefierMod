@@ -6,7 +6,9 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import thedefierwagdtd.CustomTags.CustomTag;
 import thedefierwagdtd.actions.FrolicBoostAction;
 import thedefierwagdtd.cards.BaseCard;
@@ -20,10 +22,10 @@ public class ManicIgnorance extends BaseCard {
             CardType.SKILL,
             CardRarity.COMMON,
             CardTarget.SELF,
-            4
+            3
     );
-    private static final int BLOCK = 20;
-    private static final int BLOCK_UPG = 9;
+    private static final int BLOCK = 18;
+    private static final int BLOCK_UPG = 8;
     private static final int MAGIC_NUMBER = 3;
 
     public ManicIgnorance() {
@@ -33,7 +35,16 @@ public class ManicIgnorance extends BaseCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new GainBlockAction(p, p, this.block));
-        addToBot((AbstractGameAction) new DrawCardAction((AbstractCreature) p, this.magicNumber));
+        applyEffects(p);
+    }
+
+    @Override
+    public void triggerOnExhaust() {
+        applyEffects(AbstractDungeon.player);
+    }
+
+    private void applyEffects(AbstractPlayer p) {
+        addToBot(new GainBlockAction(p, this.block));
+        addToBot(new DrawCardAction(p, this.magicNumber));
     }
 }

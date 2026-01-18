@@ -30,12 +30,13 @@ public class PlayWithFood extends BaseCard {
     );
 
     private static final int MAGIC_NUMBER = 2;
-    private static final int BLOCK = 4;
+    private static final int BLOCK = 0;
+    private static final int BLOCK_UPG = 4;
 
     public PlayWithFood() {
         super(ID, info);
         setMagic(MAGIC_NUMBER);
-        setBlock(BLOCK);
+        setBlock(BLOCK, BLOCK_UPG);
     }
 
     @Override

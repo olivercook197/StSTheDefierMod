@@ -109,7 +109,7 @@
 
   "${modID}:UnfazedPower": {
     "NAME": "Unfazed",
-    "DESCRIPTIONS": ["You no longer take extra damage from being #yVulnerable, decreases by 1 every turn."]
+    "DESCRIPTIONS": ["For "," turn, ", " turns, ", "you take no extra damage from being #yVulnerable."]
   },
 
   "${modID}:BloodOfKingsPower": {
@@ -150,5 +150,25 @@
   "${modID}:UninterruptedCautionPower": {
     "NAME": "Uninterrupted",
     "DESCRIPTIONS": ["#yCaution is not removed at the start of your turn."]
+  },
+
+  "${modID}:SalubriousShinePower": {
+    "NAME": "Salubrious Shine",
+    "DESCRIPTIONS": ["The next ", " times you play a card this turn, gain 1 Max HP."]
+  },
+
+  "${modID}:EdgeOfDeathPower": {
+    "NAME": "Edge of Death",
+    "DESCRIPTIONS": ["You have played each #yDeath #yCurse this combat. "]
+  },
+
+  "${modID}:ShadowDancerPower": {
+    "NAME": "Shadow Dancer",
+    "DESCRIPTIONS": ["Curses cost ", " more to play, when played they provide ", "[E] ", "and draw ", " card.", " cards."]
+  },
+
+  "${modID}:SmoulderingPower": {
+    "NAME": "Smouldering",
+    "DESCRIPTIONS": ["Gain ", " Dexterity next turn."]
   }
 }

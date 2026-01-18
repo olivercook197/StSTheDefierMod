@@ -123,7 +123,7 @@
   "${modID}:SmoulderingSneer": {
     "NAME": "Smouldering Sneer",
     "DESCRIPTION": "Next turn, gain !M! Temporary Strength and 2 Vulnerable.",
-    "UPGRADE_DESCRIPTION": "Next turn, gain !M! Temporary Strength and 2 Vulnerable. NL Gain 1 Dexterity"
+    "UPGRADE_DESCRIPTION": "Next turn, gain !M! Temporary Strength, 2 Vulnerable and 1 Dexterity."
   },
 
   "${modID}:FacingDown": {
@@ -176,8 +176,8 @@
     "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Gain !M! Strength."
   },
 
-  "${modID}:MarkOfGreatness": {
-    "NAME": "Mark of Greatness",
+  "${modID}:StrikeOfGreatness": {
+    "NAME": "Strike of Greatness",
     "DESCRIPTION": "Deal !D! damage. NL Gain !M! ${modID}:Lion's_Heart."
   },
 
@@ -319,7 +319,7 @@
 
   "${modID}:ManicIgnorance": {
     "NAME": "Manic Ignorance",
-    "DESCRIPTION": "Gain !B! Block. NL Draw !M! cards."
+    "DESCRIPTION": "Gain !B! Block. NL Draw !M! cards. NL If this card is Exhausted, trigger its effects."
   },
 
   "${modID}:Agility": {
@@ -474,14 +474,14 @@
 
   "${modID}:WarmGlow": {
     "NAME": "Warm Glow",
-    "DESCRIPTION": "Gain !M! Regen. NL Gain 10 Temporary ${modID}:Caution. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain !M! Regen. NL Gain 10 Temporary ${modID}:Caution."
+    "DESCRIPTION": "Gain 10 Temporary ${modID}:Caution. NL Gain !M! Regen. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain 10 Temporary ${modID}:Caution. NL The first time you play this card, gain !M! Regen. NL Exhaust."
   },
 
   "${modID}:WitchsFamiliar": {
     "NAME": "Witch's Familiar",
-    "DESCRIPTION": "Apply !M! Vulnerable to EVERYONE. NL Gain 1 ${modID}:Unfazed. NL Gain 2 Regen. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Apply !M! Vulnerable to EVERYONE. NL Gain 1 ${modID}:Unfazed. NL Gain 3 Regen. NL Exhaust."
+    "DESCRIPTION": "Apply !M! Vulnerable to EVERYONE. NL Gain 2 Regen. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Apply !M! Vulnerable to EVERYONE. NL Gain 3 Regen. NL Exhaust."
   },
 
   "${modID}:StreetSmart": {
@@ -499,6 +499,16 @@
   "${modID}:Hunt": {
     "NAME": "Hunt",
     "DESCRIPTION": "Deal !D! damage. NL Add a *Nourishment to your hand."
-  }
+  },
 
+  "${modID}:SalubriousShine": {
+    "NAME": "Salubrious Shine",
+    "DESCRIPTION": "The next !M! times you play a card this turn, gain 1 Max HP. NL Exhaust."
+  },
+
+  "${modID}:ShadowDancer": {
+    "NAME": "Shadow Dancer",
+    "DESCRIPTION": "Curses cost 1 more to play, when played they provide [E] and draw 1 card.",
+    "UPGRADE_DESCRIPTION": "Curses cost 1 more to play, when played they provide [E] and draw 1 card. NL Draw 1 card."
+  }
 }

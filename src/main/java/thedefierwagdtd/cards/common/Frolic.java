@@ -27,12 +27,13 @@ public class Frolic extends BaseCard {
     );
 
     private static final int BLOCK = 7;
+    private static final int BLOCK_UPG = 1;
     private static final int MAGIC_NUMBER = 3;
     private static final int UPG_MAGIC_NUMBER = 3;
 
     public Frolic() {
         super(ID, info);
-        setBlock(BLOCK);
+        setBlock(BLOCK, BLOCK_UPG);
         setMagic(MAGIC_NUMBER, UPG_MAGIC_NUMBER);
     }
 

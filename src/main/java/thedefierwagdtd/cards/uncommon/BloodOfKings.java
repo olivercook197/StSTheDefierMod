@@ -38,7 +38,7 @@ public class BloodOfKings extends BaseCard {
                 this.magicNumber));
         if (upgraded) {
             addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p,
-                    (AbstractPower)new VulnerablePower((AbstractCreature)p, 4, false), 1));
+                    (AbstractPower)new VulnerablePower((AbstractCreature)p, 4, false), 4));
         }
     }
 }

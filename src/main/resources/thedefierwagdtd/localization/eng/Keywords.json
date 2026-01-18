@@ -52,7 +52,7 @@
       "Caution",
       "caution"
     ],
-    "DESCRIPTION": "Reduces damage from Reckless and enemies, decreases by 1 every turn."
+    "DESCRIPTION": "Reduces damage from #yReckless and enemies, decreases by 1 every turn."
   },
 
   {
@@ -60,6 +60,6 @@
     "NAMES": [
       "Unfazed"
     ],
-    "DESCRIPTION": "You no longer take extra damage from being #yVulnerable, decreases by 1 every turn."
+    "DESCRIPTION": "You take no extra damage from being #yVulnerable."
   }
 ]

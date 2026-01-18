@@ -18,8 +18,8 @@ import thedefierwagdtd.character.TheDefier;
 import thedefierwagdtd.powers.LionsHeartBuff;
 import thedefierwagdtd.util.CardStats;
 
-public class MarkOfGreatness extends BaseCard {
-    public static final String ID = makeID(MarkOfGreatness.class.getSimpleName());
+public class StrikeOfGreatness extends BaseCard {
+    public static final String ID = makeID(StrikeOfGreatness.class.getSimpleName());
     private static final CardStats info = new CardStats(
             TheDefier.Meta.CARD_COLOR,
             CardType.ATTACK,
@@ -28,14 +28,16 @@ public class MarkOfGreatness extends BaseCard {
             0
     );
 
-    private static final int DAMAGE = 1;
+    private static final int DAMAGE = 2;
     private static final int MAGIC_NUMBER = 5;
     private static final int UPG_MAGIC_NUMBER = 4;
 
-    public MarkOfGreatness() {
+    public StrikeOfGreatness() {
         super(ID, info);
         setDamage(DAMAGE);
         setMagic(MAGIC_NUMBER, UPG_MAGIC_NUMBER);
+
+        tags.add(CardTags.STRIKE);
     }
 
     @Override

@@ -2,9 +2,12 @@ package thedefierwagdtd;
 
 import basemod.AutoAdd;
 import basemod.BaseMod;
+import basemod.abstracts.CustomSavable;
+import basemod.abstracts.CustomUnlockBundle;
 import basemod.eventUtil.AddEventParams;
 import basemod.eventUtil.EventUtils;
 import basemod.interfaces.*;
+import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.GameActionManager;
@@ -12,6 +15,7 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.helpers.EventHelper;
 import com.megacrit.cardcrawl.map.MapEdge;
 import com.megacrit.cardcrawl.map.MapRoomNode;
@@ -21,18 +25,23 @@ import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import thedefierwagdtd.CustomTags.CustomTag;
 import thedefierwagdtd.actions.RecklessAction;
 import thedefierwagdtd.cards.BaseCard;
+import thedefierwagdtd.cards.common.ManicIgnorance;
+import thedefierwagdtd.cards.rare.FatalBite;
 import thedefierwagdtd.cards.uncommon.BrushWithDeath;
+import thedefierwagdtd.cards.uncommon.Jolt;
 import thedefierwagdtd.cards.uncommon.StartSmall;
 import thedefierwagdtd.character.TheDefier;
+import thedefierwagdtd.events.BookEvent;
 import thedefierwagdtd.events.EndOfActBountyRewardEvent;
+import thedefierwagdtd.potions.CautionPotion;
+import thedefierwagdtd.potions.LionsHeartPotion;
+import thedefierwagdtd.potions.UnfazedVulnerablePotion;
 import thedefierwagdtd.powers.*;
+import thedefierwagdtd.relics.AncestralCall;
 import thedefierwagdtd.relics.BaseRelic;
 import thedefierwagdtd.relics.EndOfActBounty;
 import thedefierwagdtd.rooms.CustomEventRoom;
-import thedefierwagdtd.util.GeneralUtils;
-import thedefierwagdtd.util.KeywordInfo;
-import thedefierwagdtd.util.Sounds;
-import thedefierwagdtd.util.TextureLoader;
+import thedefierwagdtd.util.*;
 import com.badlogic.gdx.Files;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.lwjgl.LwjglFileHandle;
@@ -67,12 +76,15 @@ public class TheDefierModWAGDTD implements
         AddAudioSubscriber,
         PostInitializeSubscriber,
         OnCardUseSubscriber,
+        OnStartBattleSubscriber,
         PostBattleSubscriber {
     public static ModInfo info;
     public static String modID; //Edit your pom.xml to change this
     static { loadModInfo(); }
     private static final String resourcesFolder = checkResourcesPath();
     public static final Logger logger = LogManager.getLogger(modID); //Used to output to the console.
+
+    public static Color potionLabColor = new Color(201f/255f, 97f/255f, 0f/255f, 1f);
 
     //This is used to prefix the IDs of various objects like cards and relics,
     //to avoid conflicts between different mods using the same name for things.
@@ -116,6 +128,38 @@ public class TheDefierModWAGDTD implements
                         .create()
         );
 
+        BaseMod.addEvent(BookEvent.ID, BookEvent.class, TheCity.ID);
+
+        BaseMod.addSaveField("DefierConfusionTipShown", new DefierConfusionTipSave());
+
+        DefierTutorialTracker.init();
+
+        BaseMod.addPotion(
+                UnfazedVulnerablePotion.class,
+                Color.WHITE,   // liquid color
+                Color.GRAY,    // hybrid color
+                Color.RED,     // spots color
+                UnfazedVulnerablePotion.POTION_ID,
+                TheDefier.Meta.THE_DEFIER
+        );
+
+        BaseMod.addPotion(
+                LionsHeartPotion.class,
+                Color.ORANGE,   // liquid color
+                Color.BLACK,    // hybrid color
+                Color.GRAY,     // spots color
+                LionsHeartPotion.POTION_ID,
+                TheDefier.Meta.THE_DEFIER
+        );
+
+        BaseMod.addPotion(
+                CautionPotion.class,
+                Color.BLUE,   // liquid color
+                Color.NAVY,    // hybrid color
+                Color.CORAL,     // spots color
+                CautionPotion.POTION_ID,
+                TheDefier.Meta.THE_DEFIER
+        );
     }
 
     /*----------Localization----------*/
@@ -351,45 +395,55 @@ public class TheDefierModWAGDTD implements
 
     @Override
     public void receiveCardUsed(AbstractCard abstractCard) {
-        if (!abstractCard.hasTag(CustomTag.RECKLESS)) {
-            return;
-        }
+        if (abstractCard.hasTag(CustomTag.RECKLESS)) {
+            AbstractPlayer p = AbstractDungeon.player;
 
-        AbstractPlayer p = AbstractDungeon.player;
+            AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
+                @Override
+                public void update() {
+                    // Brush With Death
+                    if (abstractCard.cardID.equals(BrushWithDeath.ID)) {
+                        boolean hasCurse = p.hand.group.stream()
+                                .anyMatch(c -> c.type == AbstractCard.CardType.CURSE);
 
-        AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
-            @Override
-            public void update() {
-                // Brush With Death
-                if (abstractCard.cardID.equals(BrushWithDeath.ID)) {
-                    boolean hasCurse = p.hand.group.stream()
-                            .anyMatch(c -> c.type == AbstractCard.CardType.CURSE);
+                        if (!hasCurse) {
+                            addToBot(new RecklessAction(p));
+                        }
 
-                    if (!hasCurse) {
-                        addToBot(new RecklessAction(p));
+                        isDone = true;
+                        return;
                     }
 
+                    addToBot(new RecklessAction(p));
                     isDone = true;
-                    return;
                 }
+            });
 
-//                // Ferocious Swipe
-//                if (abstractCard.cardID.equals(FerociousSwipe.ID)) {
-//                    AbstractPower lionsHeart = p.getPower(LionsHeartBuff.POWER_ID);
-//                    int lhAmount = (lionsHeart == null ? 0 : lionsHeart.amount);
-//
-//                    if (lhAmount < 30) {
-//                        addToBot(new RecklessAction(p));
-//                    }
-//
-//                    isDone = true;
-//                    return;
-//                }
-
-                addToBot(new RecklessAction(p));
-                isDone = true;
+            if (DefierCurseCombatTracker.powerApplied) {
+                return;
             }
-        });
+
+            if (!DefierCurseHelper.REQUIRED_CURSES.contains(abstractCard.cardID)) {
+                return;
+            }
+
+            DefierCurseCombatTracker.playedThisCombat.add(abstractCard.cardID);
+
+            if (DefierCurseCombatTracker.playedThisCombat.containsAll(
+                    DefierCurseHelper.REQUIRED_CURSES)) {
+
+                AbstractDungeon.actionManager.addToBottom(
+                        new ApplyPowerAction(
+                                p,
+                                p,
+                                new EdgeOfDeathPower(p, 1),
+                                1
+                        )
+                );
+
+                DefierCurseCombatTracker.powerApplied = true;
+            }
+        }
     }
 
     @Override
@@ -521,13 +575,9 @@ public class TheDefierModWAGDTD implements
         return node;
     }
 
-    public void receiveEditEvents() {
-        BaseMod.addEvent(
-                EndOfActBountyRewardEvent.ID,
-                EndOfActBountyRewardEvent.class
-        );
+    @Override
+    public void receiveOnBattleStart(AbstractRoom room) {
+        DefierCurseCombatTracker.reset();
     }
-
-
 
 }

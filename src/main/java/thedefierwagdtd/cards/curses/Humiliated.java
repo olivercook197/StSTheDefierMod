@@ -47,4 +47,8 @@ public class Humiliated extends BaseCard {
         addToBot(new ApplyPowerAction(p, p,
                 new GainStrengthPower(p, 1), 1));
     }
+
+    public boolean canSpawn() {
+        return false;
+    }
 }

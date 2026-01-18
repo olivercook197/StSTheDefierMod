@@ -41,7 +41,14 @@ public class UnfazedPower extends BasePower {
     }
 
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0];
+        this.description = DESCRIPTIONS[0] + this.amount;
+        if (this.amount == 1) {
+            this.description += DESCRIPTIONS[1];
+        }
+        else {
+            this.description += DESCRIPTIONS[2];
+        }
+        this.description += DESCRIPTIONS[3];
     }
 }
 

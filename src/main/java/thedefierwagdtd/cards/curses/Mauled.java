@@ -37,4 +37,8 @@ public class Mauled extends BaseCard {
         addToBot((AbstractGameAction) new ApplyPowerAction((AbstractCreature) p, (AbstractCreature) p,
                 (AbstractPower) new LoseStrengthPower((AbstractCreature) p, this.magicNumber + 1), this.magicNumber + 1));
     }
+
+    public boolean canSpawn() {
+        return false;
+    }
 }

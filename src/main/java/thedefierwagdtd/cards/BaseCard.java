@@ -3,6 +3,7 @@ package thedefierwagdtd.cards;
 import basemod.BaseMod;
 import basemod.abstracts.CustomCard;
 import basemod.abstracts.DynamicVariable;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import thedefierwagdtd.TheDefierModWAGDTD;
 import thedefierwagdtd.util.CardStats;
 import thedefierwagdtd.util.TriFunction;
