@@ -2,6 +2,8 @@ package thedefierwagdtd;
 
 import basemod.AutoAdd;
 import basemod.BaseMod;
+import basemod.ModLabeledToggleButton;
+import basemod.ModPanel;
 import basemod.abstracts.CustomSavable;
 import basemod.abstracts.CustomUnlockBundle;
 import basemod.eventUtil.AddEventParams;
@@ -17,6 +19,8 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.helpers.EventHelper;
+import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.map.MapEdge;
 import com.megacrit.cardcrawl.map.MapRoomNode;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -80,11 +84,15 @@ public class TheDefierModWAGDTD implements
         PostBattleSubscriber {
     public static ModInfo info;
     public static String modID; //Edit your pom.xml to change this
-    static { loadModInfo(); }
+
+    static {
+        loadModInfo();
+    }
+
     private static final String resourcesFolder = checkResourcesPath();
     public static final Logger logger = LogManager.getLogger(modID); //Used to output to the console.
 
-    public static Color potionLabColor = new Color(201f/255f, 97f/255f, 0f/255f, 1f);
+    public static Color potionLabColor = new Color(201f / 255f, 97f / 255f, 0f / 255f, 1f);
 
     //This is used to prefix the IDs of various objects like cards and relics,
     //to avoid conflicts between different mods using the same name for things.
@@ -160,15 +168,35 @@ public class TheDefierModWAGDTD implements
                 CautionPotion.POTION_ID,
                 TheDefier.Meta.THE_DEFIER
         );
+
+        try {
+            Properties defaults = new Properties();
+            defaults.setProperty(ENABLE_OTHER_CHAR_RELICS, "true");
+
+            config = new SpireConfig(
+                    "TheDefierWAGDTD",
+                    "TheDefierConfig",
+                    defaults
+            );
+            config.load();
+
+            enableOtherCharRelics =
+                    config.getBool(ENABLE_OTHER_CHAR_RELICS);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        registerModSettings();
     }
 
     /*----------Localization----------*/
 
     //This is used to load the appropriate localization files based on language.
-    private static String getLangString()
-    {
+    private static String getLangString() {
         return Settings.language.name().toLowerCase();
     }
+
     private static final String defaultLanguage = "eng";
 
     public static final Map<String, KeywordInfo> keywords = new HashMap<>();
@@ -185,8 +213,7 @@ public class TheDefierModWAGDTD implements
         if (!defaultLanguage.equals(getLangString())) {
             try {
                 loadLocalization(getLangString());
-            }
-            catch (GdxRuntimeException e) {
+            } catch (GdxRuntimeException e) {
                 e.printStackTrace();
             }
         }
@@ -214,8 +241,7 @@ public class TheDefierModWAGDTD implements
     }
 
     @Override
-    public void receiveEditKeywords()
-    {
+    public void receiveEditKeywords() {
         Gson gson = new Gson();
         String json = Gdx.files.internal(localizationPath(defaultLanguage, "Keywords.json")).readString(String.valueOf(StandardCharsets.UTF_8));
         KeywordInfo[] keywords = gson.fromJson(json, KeywordInfo[].class);
@@ -225,17 +251,14 @@ public class TheDefierModWAGDTD implements
         }
 
         if (!defaultLanguage.equals(getLangString())) {
-            try
-            {
+            try {
                 json = Gdx.files.internal(localizationPath(getLangString(), "Keywords.json")).readString(String.valueOf(StandardCharsets.UTF_8));
                 keywords = gson.fromJson(json, KeywordInfo[].class);
                 for (KeywordInfo keyword : keywords) {
                     keyword.prep();
                     registerKeyword(keyword);
                 }
-            }
-            catch (Exception e)
-            {
+            } catch (Exception e) {
                 logger.warn(modID + " does not support " + getLangString() + " keywords.");
             }
         }
@@ -243,8 +266,7 @@ public class TheDefierModWAGDTD implements
 
     private void registerKeyword(KeywordInfo info) {
         BaseMod.addKeyword(modID.toLowerCase(), info.PROPER_NAME, info.NAMES, info.DESCRIPTION);
-        if (!info.ID.isEmpty())
-        {
+        if (!info.ID.isEmpty()) {
             keywords.put(info.ID, info);
         }
     }
@@ -254,7 +276,8 @@ public class TheDefierModWAGDTD implements
         loadAudio(Sounds.class);
     }
 
-    private static final String[] AUDIO_EXTENSIONS = { ".ogg", ".wav", ".mp3" }; //There are more valid types, but not really worth checking them all here
+    private static final String[] AUDIO_EXTENSIONS = {".ogg", ".wav", ".mp3"}; //There are more valid types, but not really worth checking them all here
+
     private void loadAudio(Class<?> cls) {
         try {
             Field[] fields = cls.getDeclaredFields();
@@ -276,19 +299,16 @@ public class TheDefierModWAGDTD implements
                             }
                         }
                         throw new Exception("Failed to find an audio file \"" + f.getName() + "\" in " + resourcesFolder + "/audio; check to ensure the capitalization and filename are correct.");
-                    }
-                    else { //Otherwise, load defined path
+                    } else { //Otherwise, load defined path
                         if (Gdx.files.internal(s).exists()) {
                             BaseMod.addAudio(s, s);
-                        }
-                        else {
+                        } else {
                             throw new Exception("Failed to find audio file \"" + s + "\"; check to ensure this is the correct filepath.");
                         }
                     }
                 }
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             logger.error("Exception occurred in loadAudio: ", e);
         }
     }
@@ -301,15 +321,19 @@ public class TheDefierModWAGDTD implements
     public static String audioPath(String file) {
         return resourcesFolder + "/audio/" + file;
     }
+
     public static String imagePath(String file) {
         return resourcesFolder + "/images/" + file;
     }
+
     public static String characterPath(String file) {
         return resourcesFolder + "/images/character/" + file;
     }
+
     public static String powerPath(String file) {
         return resourcesFolder + "/images/powers/" + file;
     }
+
     public static String relicPath(String file) {
         return resourcesFolder + "/images/relics/" + file;
     }
@@ -347,7 +371,7 @@ public class TheDefierModWAGDTD implements
      * This determines the mod's ID based on information stored by ModTheSpire.
      */
     private static void loadModInfo() {
-        Optional<ModInfo> infos = Arrays.stream(Loader.MODINFOS).filter((modInfo)->{
+        Optional<ModInfo> infos = Arrays.stream(Loader.MODINFOS).filter((modInfo) -> {
             AnnotationDB annotationDB = Patcher.annotationDBMap.get(modInfo.jarURL);
             if (annotationDB == null)
                 return false;
@@ -357,8 +381,7 @@ public class TheDefierModWAGDTD implements
         if (infos.isPresent()) {
             info = infos.get();
             modID = info.ID;
-        }
-        else {
+        } else {
             throw new RuntimeException("Failed to determine mod info/ID based on initializer.");
         }
     }
@@ -549,7 +572,7 @@ public class TheDefierModWAGDTD implements
         AbstractDungeon.actionManager.clear();
         MapRoomNode cur = AbstractDungeon.currMapNode;
         MapRoomNode node = new MapRoomNode(cur.x, cur.y);
-        node.room = (AbstractRoom)new CustomEventRoom(EventHelper.getEvent(eventID));
+        node.room = (AbstractRoom) new CustomEventRoom(EventHelper.getEvent(eventID));
         ArrayList<MapEdge> curEdges = cur.getEdges();
         for (MapEdge edge : curEdges)
             node.addEdge(edge);
@@ -580,4 +603,44 @@ public class TheDefierModWAGDTD implements
         DefierCurseCombatTracker.reset();
     }
 
+    public static SpireConfig config;
+    public static final String ENABLE_OTHER_CHAR_RELICS = "EnableOtherCharRelics";
+
+    public static boolean enableOtherCharRelics = true;
+
+
+    private void registerModSettings() {
+        ModPanel panel = new ModPanel();
+
+        ModLabeledToggleButton toggle = new ModLabeledToggleButton(
+                "Enable Defier relics for other characters",
+                350.0f,
+                700.0f,
+                Settings.CREAM_COLOR,
+                FontHelper.charDescFont,
+                TheDefierModWAGDTD.enableOtherCharRelics,
+                panel,
+                label -> {
+                },
+                button -> {
+                    enableOtherCharRelics = button.enabled;
+                    TheDefierModWAGDTD.config.setBool(TheDefierModWAGDTD.ENABLE_OTHER_CHAR_RELICS, TheDefierModWAGDTD.enableOtherCharRelics);
+                    try {
+                        TheDefierModWAGDTD.config.save();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+        );
+
+        panel.addUIElement(toggle);
+
+        BaseMod.registerModBadge(
+                ImageMaster.loadImage("thedefierwagdtd/images/ui/modBadge.png"),
+                "The Defier",
+                "WhatAGoodDayToDie",
+                "Enable/disable Defier relics for other characters.",
+                panel
+        );
+    }
 }

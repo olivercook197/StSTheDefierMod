@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import thedefierwagdtd.TheDefierModWAGDTD;
 import thedefierwagdtd.character.TheDefier;
 import thedefierwagdtd.powers.UnfazedPower;
 
@@ -26,6 +27,16 @@ public class MagicScreen extends BaseRelic implements OnReceivePowerRelic {
     public MagicScreen() {
         super(RELIC_ID, NAME, RARITY, SOUND);
     }
+
+    @Override
+    public boolean canSpawn() {
+        if (AbstractDungeon.player instanceof TheDefier) {
+            return true;
+        }
+
+        return TheDefierModWAGDTD.enableOtherCharRelics;
+    }
+
 
     @Override
     public void atBattleStart() {

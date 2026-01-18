@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.localization.LocalizedStrings;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 import com.megacrit.cardcrawl.vfx.cardManip.PurgeCardEffect;
+import thedefierwagdtd.TheDefierModWAGDTD;
 import thedefierwagdtd.character.TheDefier;
 
 import java.util.ArrayList;
@@ -25,6 +26,16 @@ public class BlueBowtie extends BaseRelic {
     public BlueBowtie() {
         super(RELIC_ID, NAME, RARITY, SOUND);
     }
+
+    @Override
+    public boolean canSpawn() {
+        if (AbstractDungeon.player instanceof TheDefier) {
+            return true;
+        }
+
+        return TheDefierModWAGDTD.enableOtherCharRelics;
+    }
+
 
     @Override
     public String getUpdatedDescription() {

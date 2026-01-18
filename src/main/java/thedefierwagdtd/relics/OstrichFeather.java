@@ -2,6 +2,8 @@ package thedefierwagdtd.relics;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import thedefierwagdtd.TheDefierModWAGDTD;
+import thedefierwagdtd.character.TheDefier;
 
 
 import static thedefierwagdtd.TheDefierModWAGDTD.makeID;
@@ -15,6 +17,16 @@ public class OstrichFeather extends BaseRelic{
     public OstrichFeather() {
         super(RELIC_ID, NAME, RARITY, SOUND);
     }
+
+    @Override
+    public boolean canSpawn() {
+        if (AbstractDungeon.player instanceof TheDefier) {
+            return true;
+        }
+
+        return TheDefierModWAGDTD.enableOtherCharRelics;
+    }
+
 
     public String getUpdatedDescription() {
         return this.DESCRIPTIONS[0];
