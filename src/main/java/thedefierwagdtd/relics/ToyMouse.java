@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import thedefierwagdtd.actions.ReduceDebuffsAction;
+import thedefierwagdtd.character.TheDefier;
 import thedefierwagdtd.powers.LionsHeartBuff;
 
 import static thedefierwagdtd.TheDefierModWAGDTD.makeID;
@@ -22,7 +23,7 @@ public class ToyMouse extends BaseRelic {
     private static final LandingSound SOUND = LandingSound.CLINK;
 
     public ToyMouse() {
-        super(RELIC_ID, NAME, RARITY, SOUND);
+        super(RELIC_ID, NAME, TheDefier.Meta.CARD_COLOR, RARITY, SOUND);
     }
 
     @Override
