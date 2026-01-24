@@ -22,7 +22,7 @@ public class CautiousImpulse extends BaseCard {
             AbstractCard.CardType.SKILL,
             AbstractCard.CardRarity.RARE,
             AbstractCard.CardTarget.SELF,
-            1
+            0
     );
 
     private static final int MAGIC_NUMBER = 6;
@@ -46,7 +46,9 @@ public class CautiousImpulse extends BaseCard {
     public void upgrade() {
         if (!this.upgraded) {
             upgradeName();
-            upgradeBaseCost(0);
+            this.isInnate = true;
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            initializeDescription();
         }
     }
 }

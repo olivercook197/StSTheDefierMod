@@ -25,7 +25,7 @@ public class ThroughTheFlames extends BaseCard {
             0
     );
 
-    private static final int MAGIC_NUMBER = 4;
+    private static final int MAGIC_NUMBER = 5;
     private static final int UPG_MAGIC_NUMBER = 3;
 
     public ThroughTheFlames() {

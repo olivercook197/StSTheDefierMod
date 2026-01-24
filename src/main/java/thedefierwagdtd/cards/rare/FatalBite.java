@@ -32,7 +32,7 @@ public class FatalBite extends BaseCard {
             CardType.ATTACK,
             CardRarity.RARE,
             CardTarget.ENEMY,
-            6
+            5
     );
 
     private static final int DAMAGE = 50;

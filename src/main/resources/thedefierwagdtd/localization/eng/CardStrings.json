@@ -81,7 +81,8 @@
 
   "${modID}:CautiousImpulse": {
     "NAME": "Cautious Impulse",
-    "DESCRIPTION": "Gain !M! ${modID}:Caution. NL ${modID}:Caution no longer decreases. NL ${modID}:Reckless. NL Exhaust."
+    "DESCRIPTION": "Gain !M! ${modID}:Caution. NL ${modID}:Caution no longer decreases. NL ${modID}:Reckless. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Gain !M! ${modID}:Caution. NL ${modID}:Caution no longer decreases. NL ${modID}:Reckless. NL Exhaust."
   },
 
   "${modID}:FloatAndFall": {
@@ -255,8 +256,8 @@
 
   "${modID}:Dupe": {
     "NAME": "Dupe",
-    "DESCRIPTION": "Deal !D! damage. NL Lose 3 Strength this turn. NL Enemy loses !M! Dexterity.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Lose 3 Strength this turn. NL Enemy loses !M! Dexterity and Strength."
+    "DESCRIPTION": "Enemy loses !M! Dexterity and !M! Strength.",
+    "UPGRADE_DESCRIPTION": "Enemy loses !M! Dexterity and !M! Strength. NL Gain 3 ${modID}:Caution."
   },
 
   "${modID}:LickWounds": {

@@ -38,17 +38,10 @@
       "When playing as The Defier, #yConfusion muddles cards between #b0–2 Energy instead of #b0–3 Energy."]
   },
 
-  "thedefierwagdtd:DefierTutorial": {
-    "TEXT": [
-      "The Defier",
-      "The Defier starts with only 1 Energy. Many cards have alternate costs, such as gaining #yVulnerable or taking damage via cards with the #yReckless tag. Be prepared to take a lot of damage, and turn your deficiencies into strengths. Taking lots of damage adds #yCurses to your deck, so be careful about flooding your deck with them, though they can have their upsides."
-    ]
-  },
-
   "thedefierwagdtd:TheDefierTutorial": {
     "TEXT": [
       "The Defier starts with only 1 Energy. Many cards have alternate costs, such as gaining #yVulnerable or taking damage via cards with the #yReckless tag",
-      "Building up #yLion's #yHeart allows you to heal at the end of combat, as well as boosting some cards."
+      "Playing a card grants you 1 #yLion's #yHeart. Right-clicking the character spends 15 #yLion's #yHeart to reduce the cost of a card by 1 this combat."
     ],
     "EXTRA_TEXT": [
       "Next",

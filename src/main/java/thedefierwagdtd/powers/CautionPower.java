@@ -21,7 +21,7 @@ public class CautionPower extends BasePower {
     public float atDamageReceive(float damage, DamageInfo.DamageType type) {
         if (damage <= 0) return damage;
 
-        float reductionMultiplier = 1.0f - (this.amount / 100.0f);
+        float reductionMultiplier = 1.0f - (this.amount / 50.0f);
         return damage * Math.max(0f, reductionMultiplier);
     }
 
@@ -54,7 +54,7 @@ public class CautionPower extends BasePower {
 
     @Override
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1] + this.amount + DESCRIPTIONS[2];
+        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1] + this.amount * 2 + DESCRIPTIONS[2];
     }
 
     @Override

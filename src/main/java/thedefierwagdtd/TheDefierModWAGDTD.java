@@ -418,8 +418,17 @@ public class TheDefierModWAGDTD implements
 
     @Override
     public void receiveCardUsed(AbstractCard abstractCard) {
+        AbstractPlayer p = AbstractDungeon.player;
+
+        AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
+            @Override
+            public void update() {
+                addToBot(new ApplyPowerAction(p, p, new LionsHeartBuff(p, 1)));
+                isDone = true;
+            }
+        });
+
         if (abstractCard.hasTag(CustomTag.RECKLESS)) {
-            AbstractPlayer p = AbstractDungeon.player;
 
             AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
                 @Override

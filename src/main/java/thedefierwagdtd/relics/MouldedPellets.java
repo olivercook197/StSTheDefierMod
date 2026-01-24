@@ -45,7 +45,7 @@ public class MouldedPellets extends BaseRelic {
         if (ATTACK && SKILL && POWER) {
             flash();
             addToBot((AbstractGameAction)new RelicAboveCreatureAction((AbstractCreature) AbstractDungeon.player, this));
-            addToBot((AbstractGameAction)new ReduceDebuffsAction((AbstractCreature)AbstractDungeon.player, 1));
+            addToBot((AbstractGameAction)new ReduceDebuffsAction((AbstractCreature)AbstractDungeon.player, 2));
             addToBot(new ApplyPowerAction(
                     AbstractDungeon.player,
                     AbstractDungeon.player,

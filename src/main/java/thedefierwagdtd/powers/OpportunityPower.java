@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.ArtifactPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import thedefierwagdtd.CustomTags.CustomTag;
 
@@ -28,7 +29,12 @@ public class OpportunityPower extends BasePower {
     }
 
     public void trigger(AbstractPower appliedPower, AbstractCreature target) {
-        if (!appliedPower.ID.equals(VulnerablePower.POWER_ID)) {
+        if (!VulnerablePower.POWER_ID.equals(appliedPower.ID)) {
+            return;
+        }
+
+        if (target.hasPower(ArtifactPower.POWER_ID)
+                && target.getPower(ArtifactPower.POWER_ID).amount > 0) {
             return;
         }
 

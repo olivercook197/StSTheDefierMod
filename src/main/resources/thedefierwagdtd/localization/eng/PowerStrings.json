@@ -18,12 +18,12 @@
 
   "${modID}:LionsHeartBuff": {
     "NAME": "Lion's Heart",
-    "DESCRIPTIONS": ["At the end of combat, heal 1 #yHP for every 8 #yLion's #yHeart. ", "(", ")"]
+    "DESCRIPTIONS": ["At the end of combat, heal 1 #yHP for every 10 #yLion's #yHeart. ", "(", ")"]
   },
 
   "${modID}:BalancedCalmPower": {
     "NAME": "Balanced Calm",
-    "DESCRIPTIONS": ["Whenever you play a Skill, gain ",  " #yLion's #yHeart."]
+    "DESCRIPTIONS": ["Whenever you play a #ySkill or #yCurse, gain ",  " #yLion's #yHeart."]
   },
 
   "${modID}:WhiskerWalkerPower": {

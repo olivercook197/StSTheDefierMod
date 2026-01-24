@@ -10,7 +10,7 @@
     "NAME": "The Last Wish",
     "FLAVOR": "You've always landed on your feet... what could go wrong?",
     "DESCRIPTIONS": [
-      "Every 9 times you take damage, you are healed for 20% of your Max HP and add a random #yDeath #yCurse to your deck."
+      "Every 9 times you lose HP, you are healed for 20% of your Max HP and add a random #yDeath #yCurse to your deck."
     ]
   },
   "${modID}:EldersEye": {
@@ -166,7 +166,7 @@
     "NAME": "Moulded Pellets",
     "FLAVOR": "Eating these might not be as effective as before.",
     "DESCRIPTIONS": [
-      "Whenever you play a Power, Attack, and Skill in the same turn, reduce all of your Debuffs by 1 and gain 2 #y${modID}:Lion's_Heart."
+      "Whenever you play a Power, Attack, and Skill in the same turn, reduce all of your Debuffs by 2 and gain 2 #y${modID}:Lion's_Heart."
     ]
   },
 
