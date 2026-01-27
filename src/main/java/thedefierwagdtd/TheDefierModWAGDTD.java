@@ -420,13 +420,15 @@ public class TheDefierModWAGDTD implements
     public void receiveCardUsed(AbstractCard abstractCard) {
         AbstractPlayer p = AbstractDungeon.player;
 
-        AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
-            @Override
-            public void update() {
-                addToBot(new ApplyPowerAction(p, p, new LionsHeartBuff(p, 1)));
-                isDone = true;
-            }
-        });
+        if (p instanceof TheDefier) {
+            AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
+                @Override
+                public void update() {
+                    addToBot(new ApplyPowerAction(p, p, new LionsHeartBuff(p, 1)));
+                    isDone = true;
+                }
+            });
+        }
 
         if (abstractCard.hasTag(CustomTag.RECKLESS)) {
 

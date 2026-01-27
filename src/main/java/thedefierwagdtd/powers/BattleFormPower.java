@@ -17,7 +17,7 @@ public class BattleFormPower extends BasePower {
     private static final PowerType TYPE = PowerType.BUFF;
     private static final boolean TURN_BASED = false;
 
-    private static final int DIVISOR = 8;
+    private static final int DIVISOR = 7;
 
     public BattleFormPower(AbstractCreature owner, int amount) {
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);

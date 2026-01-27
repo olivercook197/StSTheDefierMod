@@ -23,7 +23,7 @@ public class Humiliated extends BaseCard {
             0
     );
 
-    private static final int MAGIC = 3; // base reduction
+    private static final int MAGIC = 2; // base reduction
 
     public Humiliated() {
         super(ID, info);

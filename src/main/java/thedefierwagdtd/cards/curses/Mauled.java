@@ -22,7 +22,7 @@ public class Mauled extends BaseCard {
             0
     );
 
-    private static final int MAGIC = 5;
+    private static final int MAGIC = 6;
 
     public Mauled() {
         super(ID, info);

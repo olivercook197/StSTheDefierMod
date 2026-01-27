@@ -18,7 +18,7 @@
 
   "${modID}:LionsHeartBuff": {
     "NAME": "Lion's Heart",
-    "DESCRIPTIONS": ["At the end of combat, heal 1 #yHP for every 10 #yLion's #yHeart. ", "(", ")"]
+    "DESCRIPTIONS": ["Right-Click character to spend 15 #yLion's #yHeart and reduce the cost of a random card in hand by 1 this combat. At the end of combat, heal 1 #yHP for every 10 #yLion's #yHeart. ", "(", ")"]
   },
 
   "${modID}:BalancedCalmPower": {
@@ -88,7 +88,7 @@
 
   "${modID}:BattleFormPower": {
     "NAME": "Battle Form",
-    "DESCRIPTIONS": ["At the start of your turn, gain ",  " Temporary Strength per 8 #yLion's #yHeart. (", ")"]
+    "DESCRIPTIONS": ["At the start of your turn, gain ",  " Temporary Strength per 7 #yLion's #yHeart. (", ")"]
   },
 
   "${modID}:NapPower": {

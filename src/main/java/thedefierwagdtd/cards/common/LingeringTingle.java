@@ -1,5 +1,6 @@
-package thedefierwagdtd.cards.uncommon;
+package thedefierwagdtd.cards.common;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -9,14 +10,17 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import thedefierwagdtd.actions.DecreaseCardsCost;
 import thedefierwagdtd.cards.BaseCard;
 import thedefierwagdtd.character.TheDefier;
 import thedefierwagdtd.powers.LionsHeartBuff;
+import thedefierwagdtd.powers.WearyPower;
 import thedefierwagdtd.util.CardStats;
 
 import java.util.ArrayList;
 
 import static thedefierwagdtd.CustomTags.CustomTag.RECKLESS;
+//Can you update this so that it applies Weary to all enemies?
 
 public class LingeringTingle extends BaseCard {
     public static final String ID = makeID(LingeringTingle.class.getSimpleName());
@@ -24,12 +28,12 @@ public class LingeringTingle extends BaseCard {
             TheDefier.Meta.CARD_COLOR,
             CardType.SKILL,
             CardRarity.COMMON,
-            CardTarget.SELF,
+            CardTarget.ALL_ENEMY,
             0
     );
 
-    private static final int MAGIC_NUMBER = 4;
-    private static final int UPG_MAGIC_NUMBER = 4;
+    public int MAGIC_NUMBER = 3;
+    public int UPG_MAGIC_NUMBER = -1;
 
     public LingeringTingle() {
         super(ID, info);
@@ -39,25 +43,28 @@ public class LingeringTingle extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction((AbstractCreature) AbstractDungeon.player, (AbstractCreature) AbstractDungeon.player,
-                (AbstractPower) new LionsHeartBuff((AbstractCreature) AbstractDungeon.player, magicNumber), magicNumber));
-
-        ArrayList<AbstractCard> recklessAttacks = new ArrayList<>();
-
-        for (AbstractCard c : CardLibrary.getAllCards()) {
-            if (c.type != CardType.CURSE && c.hasTag(RECKLESS)) {
-                recklessAttacks.add(c.makeStatEquivalentCopy());
+        for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+            if (!mo.isDeadOrEscaped()) {
+                addToBot(new ApplyPowerAction(
+                        mo,
+                        p,
+                        new WearyPower(mo, this.magicNumber),
+                        this.magicNumber
+                ));
             }
         }
-
-        if (!recklessAttacks.isEmpty()) {
-            AbstractCard randomCard = recklessAttacks.get(AbstractDungeon.cardRandomRng.random(recklessAttacks.size() - 1));
-
-            if (this.upgraded && randomCard.canUpgrade()) {
-                randomCard.upgrade();
+        if (upgraded) {
+            for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+                if (!mo.isDeadOrEscaped()) {
+                    addToBot(new ApplyPowerAction(
+                            mo,
+                            p,
+                            new WearyPower(mo, this.magicNumber),
+                            this.magicNumber
+                    ));
+                }
             }
-
-            addToBot(new MakeTempCardInHandAction(randomCard, 1));
         }
     }
+
 }

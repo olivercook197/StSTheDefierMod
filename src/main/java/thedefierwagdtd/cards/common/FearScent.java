@@ -38,29 +38,7 @@ public class FearScent extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int recklessCards = 0;
-        for (AbstractCard c : AbstractDungeon.player.hand.group) {
-            if (c != this && c.hasTag(RECKLESS)) {
-                recklessCards += 1;
-            }
-        }
-
-        if (recklessCards > 0) {
-            addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p,
-                    (AbstractPower)new CautionPower((AbstractCreature)p, this.magicNumber), this.magicNumber));
-        }
-
-        addToTop((AbstractGameAction)new DrawCardAction((AbstractCreature)p, 1));
-    }
-
-    @Override
-    public void triggerOnGlowCheck() {
-        AbstractPlayer p = AbstractDungeon.player;
-
-        if (p != null && p.hand.group.stream().anyMatch(c -> c.hasTag(RECKLESS))) {
-            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
-        } else {
-            this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        }
+        addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p,
+                (AbstractPower)new CautionPower((AbstractCreature)p, this.magicNumber), this.magicNumber));
     }
 }

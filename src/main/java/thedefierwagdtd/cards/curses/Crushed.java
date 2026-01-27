@@ -26,7 +26,7 @@ public class Crushed extends BaseCard {
             0
     );
 
-    private static final int MAGIC = 6;
+    private static final int MAGIC = 7;
 
     public Crushed() {
         super(ID, info);

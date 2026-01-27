@@ -200,7 +200,7 @@
 
   "${modID}:Burned": {
     "NAME": "Burned",
-    "DESCRIPTION": "Gain 1 Weak. NL Give 2 random attack cards in hand +3 damage this combat. NL ${modID}:Reckless."
+    "DESCRIPTION": "Gain 1 Weak. NL Give 2 random attack cards in hand +!M! damage this combat. NL ${modID}:Reckless."
   },
 
   "${modID}:Plummeted": {
@@ -210,7 +210,7 @@
 
   "${modID}:Crushed": {
     "NAME": "Crushed",
-    "DESCRIPTION": "A random enemy gains 2 Temporary Strength. Gain 6 ${modID}:Lion's_Heart. NL ${modID}:Reckless."
+    "DESCRIPTION": "A random enemy gains 2 Temporary Strength. Gain !M! ${modID}:Lion's_Heart. NL ${modID}:Reckless."
   },
 
   "${modID}:Humiliated": {
@@ -220,12 +220,12 @@
 
   "${modID}:Trampled": {
     "NAME": "Trampled",
-    "DESCRIPTION": "When drawn, gain 1 Frail. NL Draw 2 cards. NL ${modID}:Reckless."
+    "DESCRIPTION": "Draw 2 cards. NL Gain 1 Frail. NL ${modID}:Reckless."
   },
 
   "${modID}:Mauled": {
     "NAME": "Mauled",
-    "DESCRIPTION": "Gain 5 Temporary Strength. Lose 1 Strength next turn. NL ${modID}:Reckless."
+    "DESCRIPTION": "Gain !M! Temporary Strength. Lose 1 Strength next turn. NL ${modID}:Reckless."
   },
 
   "${modID}:Choked": {
@@ -277,7 +277,7 @@
 
   "${modID}:BattleForm": {
     "NAME": "Battle Form",
-    "DESCRIPTION": "At the start of your turn, gain 1 Temporary Strength per 8 ${modID}:Lion's_Heart. NL ${modID}:Reckless."
+    "DESCRIPTION": "At the start of your turn, gain 1 Temporary Strength per 7 ${modID}:Lion's_Heart. NL ${modID}:Reckless."
   },
 
   "${modID}:Nap": {
@@ -305,8 +305,8 @@
 
   "${modID}:LingeringTingle": {
     "NAME": "Lingering Tingle",
-    "DESCRIPTION": "Adds a random ${modID}:Reckless card to your hand. NL Gain !M! ${modID}:Lion's_Heart. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Adds a random Upgraded ${modID}:Reckless card to your hand. NL Gain !M! ${modID}:Lion's_Heart. NL Exhaust."
+    "DESCRIPTION": "Apply !M! ${modID}:Weary to ALL enemies. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Apply !M! ${modID}:Weary to ALL enemies twice. NL Exhaust."
   },
 
   "${modID}:FromWithin": {
@@ -390,7 +390,7 @@
 
   "${modID}:FearScent": {
     "NAME": "Fear Scent",
-    "DESCRIPTION": "If you have a ${modID}:Reckless card in hand, gain !M! ${modID}:Caution. NL Draw 1 card."
+    "DESCRIPTION": "Gain !M! ${modID}:Caution."
   },
 
   "${modID}:Unfazed": {

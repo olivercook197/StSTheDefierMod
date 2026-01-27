@@ -40,7 +40,7 @@ public class LionsHeartBuff extends BasePower {
     }
 
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + DESCRIPTIONS[1] + floor((float) this.amount /10) + DESCRIPTIONS[2];
+        this.description =  DESCRIPTIONS[0] + DESCRIPTIONS[1] + floor((float) this.amount /10) + DESCRIPTIONS[2];
     }
 
     public void onVictory() {

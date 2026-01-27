@@ -37,14 +37,9 @@ public class Trampled extends BaseCard {
         tags.add(CustomTag.DEATH_CURSE);
     }
 
-    public void triggerWhenDrawn() {
-        AbstractPlayer p = AbstractDungeon.player;
-        this.flash();
-        addToBot(new ApplyPowerAction(p, p, new FrailPower(p, 1, false), 1));
-    }
-
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot((AbstractGameAction) new DrawCardAction((AbstractCreature)p, this.magicNumber));
+        addToBot(new ApplyPowerAction(p, p, new FrailPower(p, 1, false), 1));
     }
 
     public boolean canSpawn() {
